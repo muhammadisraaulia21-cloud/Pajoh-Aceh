@@ -406,8 +406,8 @@ function adminSettingsHtml() {
       <div class="mt-4 space-y-4">
         <div>
           <label class="label" for="set-wa">Nomor WhatsApp Tujuan Checkout *</label>
-          <input id="set-wa" class="input" value="${escapeHtml(state.settings.wa)}" placeholder="6281269002470" inputmode="numeric" />
-          <p class="mt-1 text-[11px] text-pajoh-ink/45">Format internasional tanpa tanda plus, contoh 6281269002470.</p>
+          <input id="set-wa" class="input" value="${escapeHtml(state.settings.wa)}" placeholder="6282268570882" inputmode="numeric" />
+          <p class="mt-1 text-[11px] text-pajoh-ink/45">Boleh format 08xx atau 62xx tanpa tanda plus, contoh 082268570882 / 6282268570882.</p>
         </div>
         <div>
           <label class="label" for="set-email">Surel Resmi</label>

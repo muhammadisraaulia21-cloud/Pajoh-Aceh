@@ -5,7 +5,7 @@ import {
   STORAGE_KEY,
   STORIES,
 } from '../data/seed.js';
-import { slugifyProduct } from '../utils/format.js';
+import { normalizeWaNumber, slugifyProduct } from '../utils/format.js';
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
@@ -44,6 +44,10 @@ export function loadState() {
       settings: {
         ...DEFAULT_SETTINGS,
         ...(parsed.settings || {}),
+        wa:
+          !parsed.settings?.wa || parsed.settings.wa === '6281269002470'
+            ? DEFAULT_SETTINGS.wa
+            : normalizeWaNumber(parsed.settings.wa),
         email:
           !parsed.settings?.email || parsed.settings.email === 'halo@pajoh.id'
             ? DEFAULT_SETTINGS.email
@@ -235,7 +239,7 @@ export function removeCategory(name) {
 }
 
 export function updateBrandSettings({ wa, email, instagram, address, hours }) {
-  state.settings.wa = wa;
+  state.settings.wa = normalizeWaNumber(wa) || DEFAULT_SETTINGS.wa;
   state.settings.email = email || DEFAULT_SETTINGS.email;
   state.settings.instagram = instagram || DEFAULT_SETTINGS.instagram;
   state.settings.address = address;

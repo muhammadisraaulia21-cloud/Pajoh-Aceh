@@ -3,7 +3,7 @@ export const STORAGE_KEY = 'pajoh.app.v1';
 export const SEED_CATEGORIES = ['Lauk Utama', 'Sambal & Bumbu', 'Kue Tradisional'];
 
 export const DEFAULT_SETTINGS = {
-  wa: '6281269002470',
+  wa: '6282268570882',
   email: 'muhammadisraaulia21@gmail.com',
   instagram: 'https://www.instagram.com/mhdsraa/',
   address: 'Jl. Tgk. H. M. Daud Beureueh No. 27, Peunayong, Banda Aceh 23122',

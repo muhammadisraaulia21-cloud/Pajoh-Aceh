@@ -25,8 +25,9 @@ test('formatRupiah formats Indonesian currency accurately', () => {
   assert.equal(formatRupiah(0), 'Rp 0');
 });
 
-test('formatWaDisplay formats 62 numbers cleanly', () => {
-  assert.equal(formatWaDisplay('6281269002470'), '+62 812-6900-2470');
+test('formatWaDisplay formats 62 and 08 numbers cleanly', () => {
+  assert.equal(formatWaDisplay('6282268570882'), '+62 822-6857-0882');
+  assert.equal(formatWaDisplay('082268570882'), '+62 822-6857-0882');
 });
 
 test('slugifyProduct generates unique slugs against existing products', () => {
@@ -134,27 +135,39 @@ test('validateProductForm enforces required product fields and price', () => {
 test('buildWhatsAppOrderMessage and buildWhatsAppUrl format receipt cleanly', () => {
   const msg = buildWhatsAppOrderMessage(
     {
+      orderCode: 'PJH-4821',
       name: 'Cut Nyak',
       phone: '081234567890',
       method: 'kurir',
       address: 'Jl. Diponegoro No. 5, Banda Aceh',
       note: 'Tanpa cabai',
-      items: [{ p: { name: 'Sie Reuboh', subtitle: 'Resep Indatu', price: 85000 }, q: 2 }],
-      subtotal: 170000,
-      total: 170000,
+      items: [
+        { p: { name: 'Sie Reuboh', subtitle: 'Resep Indatu', price: 85000 }, q: 2 },
+        { p: { name: 'Sambal Ganja', subtitle: 'Racikan Dapur', price: 35000 }, q: 1 },
+      ],
+      totalItems: 3,
+      freeDeliveryEligible: false,
+      subtotal: 205000,
+      total: 205000,
     },
     DEFAULT_SETTINGS
   );
   assert.match(msg, /\*PESANAN BARU — PAJÔH\*/);
+  assert.match(msg, /Kode Pesanan: \*PJH-4821\*/);
+  assert.match(msg, /Rincian Pesanan \(3 item\)/);
   assert.match(msg, /Sie Reuboh/);
-  assert.match(msg, /Rp 170\.000/);
+  assert.match(msg, /Jumlah: 2 item x Rp 85\.000 = \*Rp 170\.000\*/);
+  assert.match(msg, /Total Jumlah Item: \*3 item\*/);
+  assert.match(msg, /\*Total Harga: Rp 205\.000\*/);
   assert.match(msg, /Catatan: Tanpa cabai/);
 
-  const url = buildWhatsAppUrl('62812-6900-2470', msg);
-  assert.equal(url.startsWith('https://wa.me/6281269002470?text='), true);
+  const url = buildWhatsAppUrl('082268570882', msg);
+  assert.equal(url.startsWith('https://wa.me/6282268570882?text='), true);
+  assert.equal(decodeURIComponent(url.split('?text=')[1]).includes('Rp 205.000'), true);
 });
 
-test('DEFAULT_SETTINGS includes updated Instagram and Surel contact info', () => {
+test('DEFAULT_SETTINGS includes updated WhatsApp, Instagram and Surel contact info', () => {
+  assert.equal(DEFAULT_SETTINGS.wa, '6282268570882');
   assert.equal(DEFAULT_SETTINGS.instagram, 'https://www.instagram.com/mhdsraa/');
   assert.equal(DEFAULT_SETTINGS.email, 'muhammadisraaulia21@gmail.com');
 });

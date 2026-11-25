@@ -14,8 +14,16 @@ export function formatRupiah(amount) {
   return 'Rp ' + Number(amount || 0).toLocaleString('id-ID');
 }
 
-export function formatWaDisplay(wa) {
+export function normalizeWaNumber(wa) {
   const digits = String(wa || '').replace(/\D/g, '');
+  if (digits.startsWith('0')) {
+    return '62' + digits.slice(1);
+  }
+  return digits;
+}
+
+export function formatWaDisplay(wa) {
+  const digits = normalizeWaNumber(wa);
   if (digits.length >= 11 && digits.slice(0, 2) === '62') {
     return '+' + digits.slice(0, 2) + ' ' + digits.slice(2, 5) + '-' + digits.slice(5, 9) + '-' + digits.slice(9);
   }
@@ -119,9 +127,21 @@ export function validateStoryForm({ tag, title, paragraphs }) {
 }
 
 export function buildWhatsAppOrderMessage(order, settings) {
+  const items = Array.isArray(order.items) ? order.items : [];
+  const totalItems =
+    Number(order.totalItems) ||
+    items.reduce((sum, it) => sum + Math.max(0, Number(it.q || 0)), 0);
+  const freeDelivery =
+    typeof order.freeDeliveryEligible === 'boolean'
+      ? order.freeDeliveryEligible
+      : Number(order.subtotal || 0) >= 250000;
+
   const lines = [];
   lines.push('*PESANAN BARU — PAJÔH*');
   lines.push('_Authentic Taste, Heritage of Aceh_');
+  if (order.orderCode) {
+    lines.push(`Kode Pesanan: *${order.orderCode}*`);
+  }
   lines.push('');
   lines.push('*Data Pemesan*');
   lines.push(`Nama: ${order.name}`);
@@ -133,16 +153,19 @@ export function buildWhatsAppOrderMessage(order, settings) {
     lines.push(`Alamat: ${order.address}`);
   }
   lines.push('');
-  lines.push('*Rincian Pesanan*');
-  order.items.forEach((it, index) => {
+  lines.push(`*Rincian Pesanan (${totalItems} item)*`);
+  items.forEach((it, index) => {
+    const qty = Number(it.q || 0);
+    const price = Number(it.p?.price || 0);
     lines.push(`${index + 1}. ${it.p.name}`);
     if (it.p.subtitle) lines.push(`   ${it.p.subtitle}`);
-    lines.push(`   ${it.q} x ${formatRupiah(it.p.price)} = ${formatRupiah(it.q * it.p.price)}`);
+    lines.push(`   Jumlah: ${qty} item x ${formatRupiah(price)} = *${formatRupiah(qty * price)}*`);
   });
   lines.push('');
+  lines.push(`Total Jumlah Item: *${totalItems} item*`);
   lines.push(`Subtotal: ${formatRupiah(order.subtotal)}`);
-  lines.push('Pengiriman: Gratis');
-  lines.push(`*Total: ${formatRupiah(order.total)}*`);
+  lines.push(`Pengiriman: ${freeDelivery ? 'Gratis (Area Banda Aceh)' : 'Menyusul (sesuai jarak)'}`);
+  lines.push(`*Total Harga: ${formatRupiah(order.total)}*`);
   if (order.note) {
     lines.push('');
     lines.push(`Catatan: ${order.note}`);
@@ -155,6 +178,6 @@ export function buildWhatsAppOrderMessage(order, settings) {
 }
 
 export function buildWhatsAppUrl(waNumber, message) {
-  const digits = String(waNumber || '').replace(/\D/g, '');
+  const digits = normalizeWaNumber(waNumber);
   return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
 }

@@ -6,6 +6,7 @@ import {
   buildWhatsAppUrl,
   escapeHtml,
   formatRupiah,
+  formatWaDisplay,
   validateCheckoutForm,
 } from '../utils/format.js';
 import { calculateCartSummary } from '../utils/menuFilter.js';
@@ -19,6 +20,10 @@ function orderSuccessHtml() {
     month: 'long',
     year: 'numeric',
   });
+  const totalItems =
+    Number(o.totalItems) ||
+    o.items.reduce((sum, it) => sum + Math.max(0, Number(it.q || 0)), 0);
+  const waDisplay = formatWaDisplay(state.settings.wa);
 
   return `
   <section class="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-20">
@@ -28,8 +33,8 @@ function orderSuccessHtml() {
           <i data-lucide="party-popper" class="h-7 w-7"></i>
         </span>
         <p class="mt-4 text-[11px] font-bold uppercase tracking-[0.26em] text-[#8A6A1F]">Terima kasih, ${escapeHtml(o.name.split(' ')[0])}</p>
-        <h1 class="serif mt-2 text-3xl font-semibold text-pajoh-green sm:text-4xl">Pesanan siap dikirim</h1>
-        <p class="mx-auto mt-3 max-w-md text-[13.5px] leading-relaxed text-pajoh-ink/65">Klik tombol di bawah untuk mengirim rincian struk pesanan langsung ke WhatsApp Dapur Pajôh.</p>
+        <h1 class="serif mt-2 text-3xl font-semibold text-pajoh-green sm:text-4xl">Pesanan siap dikirim ke WhatsApp</h1>
+        <p class="mx-auto mt-3 max-w-md text-[13.5px] leading-relaxed text-pajoh-ink/65">Klik tombol di bawah untuk membuka WhatsApp <strong class="font-semibold text-pajoh-green">${escapeHtml(waDisplay)}</strong> dengan teks rincian pesanan yang sudah terisi otomatis.</p>
       </div>
 
       <div class="mt-7 rounded-2xl bg-pajoh-ivory p-5">
@@ -42,14 +47,14 @@ function orderSuccessHtml() {
             .map(
               (it) =>
                 `<div class="flex justify-between gap-3">
-                  <span class="text-pajoh-ink/80">${escapeHtml(it.p.name)} <span class="tabular-nums text-pajoh-ink/45">× ${it.q}</span></span>
+                  <span class="text-pajoh-ink/80">${escapeHtml(it.p.name)} <span class="tabular-nums text-pajoh-ink/50">(${it.q} × ${formatRupiah(it.p.price)})</span></span>
                   <span class="tabular-nums shrink-0 font-semibold text-pajoh-green">${formatRupiah(it.q * it.p.price)}</span>
                 </div>`
             )
             .join('')}
         </div>
         <div class="mt-3 flex items-center justify-between border-t border-pajoh-green/15 pt-3">
-          <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-pajoh-green/60">Total</span>
+          <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-pajoh-green/60">Total (${totalItems} item)</span>
           <span class="serif tabular-nums text-xl font-bold text-pajoh-green">${formatRupiah(o.total)}</span>
         </div>
         <div class="mt-3 grid gap-1 text-[12px] text-pajoh-ink/65">
@@ -59,9 +64,14 @@ function orderSuccessHtml() {
         </div>
       </div>
 
+      <div class="mt-4 rounded-2xl border border-pajoh-green/10 bg-pajoh-sand/45 p-4">
+        <p class="text-[10.5px] font-bold uppercase tracking-[0.18em] text-pajoh-green/65">Teks Pesanan Otomatis WhatsApp</p>
+        <pre id="wa-message-preview" class="mt-2 whitespace-pre-wrap break-words font-sans text-[12px] leading-relaxed text-pajoh-ink/80">${escapeHtml(o.message)}</pre>
+      </div>
+
       <div class="mt-6 flex flex-col gap-2.5 sm:flex-row">
-        <a href="${escapeHtml(o.url)}" target="_blank" rel="noopener" class="btn btn-primary flex-1">
-          <i data-lucide="message-circle" class="h-4 w-4"></i> Kirim via WhatsApp
+        <a id="checkout-wa-link" href="${escapeHtml(o.url)}" target="_blank" rel="noopener" class="btn btn-primary flex-1">
+          <i data-lucide="message-circle" class="h-4 w-4"></i> Kirim ke WhatsApp (${escapeHtml(waDisplay)})
         </a>
         <button type="button" id="copy-receipt-btn" class="btn btn-outline flex-1">
           <i data-lucide="clipboard-list" class="h-4 w-4"></i> Salin Struk
@@ -78,7 +88,7 @@ function orderSuccessHtml() {
 export function renderCheckoutPage() {
   if (ui.lastOrder) return orderSuccessHtml();
 
-  const { entries, subtotal, freeDeliveryEligible } = calculateCartSummary(
+  const { entries, count, subtotal, freeDeliveryEligible } = calculateCartSummary(
     state.products,
     state.cart
   );
@@ -196,18 +206,18 @@ export function renderCheckoutPage() {
               .join('')}
           </div>
           <div class="mt-4 space-y-2 border-t border-dashed border-pajoh-green/15 pt-4 text-[13.5px]">
-            <div class="flex justify-between text-pajoh-ink/70"><span>Subtotal</span><span class="tabular-nums font-semibold">${formatRupiah(subtotal)}</span></div>
+            <div class="flex justify-between text-pajoh-ink/70"><span>Subtotal (<span class="tabular-nums">${count}</span> item)</span><span class="tabular-nums font-semibold">${formatRupiah(subtotal)}</span></div>
             <div class="flex justify-between text-pajoh-ink/70"><span>Pengiriman</span><span class="font-semibold text-pajoh-green">${freeDeliveryEligible ? 'Gratis' : 'Menyusul'}</span></div>
             <div class="flex justify-between text-pajoh-ink/70"><span>Biaya penanganan</span><span class="tabular-nums font-semibold text-pajoh-green">Rp 0</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between border-t border-pajoh-green/15 pt-4">
-            <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-pajoh-green/60">Total Bayar</span>
+            <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-pajoh-green/60">Total Bayar (${count} item)</span>
             <span class="serif tabular-nums text-2xl font-bold text-pajoh-green">${formatRupiah(subtotal)}</span>
           </div>
           <button type="submit" class="btn btn-primary mt-5 w-full">
-            <i data-lucide="message-circle" class="h-4 w-4"></i> Konfirmasi Pesanan
+            <i data-lucide="message-circle" class="h-4 w-4"></i> Konfirmasi &amp; Kirim WhatsApp
           </button>
-          <p class="mt-3 text-center text-[11px] leading-relaxed text-pajoh-ink/50">Struk pesanan dibuat otomatis dan siap dikirim melalui WhatsApp. Pembayaran dilakukan setelah konfirmasi.</p>
+          <p class="mt-3 text-center text-[11px] leading-relaxed text-pajoh-ink/50">Pesan WhatsApp ke <strong class="font-semibold text-pajoh-green">${escapeHtml(formatWaDisplay(state.settings.wa))}</strong> berisi daftar menu, jumlah item, dan total harga dibuat otomatis.</p>
         </div>
       </aside>
     </form>
@@ -289,7 +299,10 @@ export function mountCheckoutPage(rerenderCurrentRoute) {
       return;
     }
 
-    const { entries, subtotal } = calculateCartSummary(state.products, state.cart);
+    const { entries, count, subtotal, freeDeliveryEligible } = calculateCartSummary(
+      state.products,
+      state.cart
+    );
     if (!entries.length) {
       showToast('Keranjang kosong.', 'error');
       rerenderCurrentRoute();
@@ -313,6 +326,8 @@ export function mountCheckoutPage(rerenderCurrentRoute) {
         },
         q: entry.q,
       })),
+      totalItems: count,
+      freeDeliveryEligible,
       subtotal,
       total: subtotal,
       createdAt: new Date(),
