@@ -1,0 +1,2553 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pajôh — Authentic Taste, Heritage of Aceh</title>
+<meta name="description" content="Pajôh — dapur kuliner warisan Aceh. Sie Reuboh, Ayam Tangkap, Keumamah, Sambal Ganja, dan kue tradisional, dimasak dengan rempah asli Banda Aceh." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          pajoh: {
+            green: '#064E3B',
+            forest: '#022C22',
+            gold: '#D4AF37',
+            goldsoft: '#EFE2B8',
+            ivory: '#FAF8F5',
+            sand: '#F3EFE7',
+            ink: '#14231D'
+          }
+        },
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          serif: ['"Cormorant Garamond"', 'Georgia', 'serif']
+        },
+        boxShadow: {
+          soft: '0 18px 45px -24px rgba(2,44,34,0.35)'
+        }
+      }
+    }
+  };
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root { color-scheme: light; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; background: #FAF8F5; color: #14231D; -webkit-font-smoothing: antialiased; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  ::selection { background: #D4AF37; color: #022C22; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: #CBD8CF; border-radius: 99px; border: 3px solid #FAF8F5; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; border-radius: 999px; padding: .8rem 1.4rem; font-size: .82rem; font-weight: 600; letter-spacing: .01em; line-height: 1.1; cursor: pointer; border: 1px solid transparent; transition: transform .25s cubic-bezier(.22,1,.36,1), background-color .25s, color .25s, box-shadow .25s, border-color .25s; }
+  .btn:active { transform: scale(.97); }
+  .btn-primary { background: #064E3B; color: #FAF8F5; box-shadow: 0 14px 26px -18px rgba(2,44,34,.9); }
+  .btn-primary:hover { background: #022C22; transform: translateY(-2px); }
+  .btn-gold { background: #D4AF37; color: #022C22; box-shadow: 0 14px 26px -18px rgba(212,175,55,.9); }
+  .btn-gold:hover { background: #C9A52F; transform: translateY(-2px); }
+  .btn-outline { border-color: rgba(6,78,59,.22); color: #064E3B; background: rgba(255,255,255,.45); }
+  .btn-outline:hover { background: #fff; border-color: rgba(6,78,59,.4); transform: translateY(-2px); }
+  .btn-ghost { color: #064E3B; background: transparent; }
+  .btn-ghost:hover { background: rgba(6,78,59,.06); }
+  .btn-sm { padding: .55rem .95rem; font-size: .75rem; }
+  .btn-lg { padding: .95rem 1.8rem; font-size: .9rem; }
+  .btn[disabled] { opacity: .45; cursor: not-allowed; transform: none !important; box-shadow: none; }
+  .icon-btn { display: inline-flex; height: 40px; width: 40px; align-items: center; justify-content: center; border-radius: 999px; color: #064E3B; transition: background .2s, color .2s; }
+  .icon-btn:hover { background: rgba(6,78,59,.07); }
+
+  .label { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(6,78,59,.62); margin-bottom: .4rem; }
+  .input, .select, .textarea { width: 100%; border-radius: .8rem; border: 1px solid rgba(6,78,59,.16); background: #fff; padding: .7rem .9rem; font-size: .88rem; color: #14231D; font-family: inherit; transition: border-color .2s, box-shadow .2s; }
+  .input::placeholder, .textarea::placeholder { color: rgba(20,35,29,.32); }
+  .input:focus, .select:focus, .textarea:focus { outline: none; border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212,175,55,.18); }
+  .is-err { border-color: #DC2626 !important; box-shadow: 0 0 0 3px rgba(220,38,38,.1) !important; }
+  .err-msg { display: none; margin-top: .3rem; font-size: .7rem; font-weight: 600; color: #DC2626; }
+  .err-msg.show { display: block; }
+
+  .aceh-band { height: 16px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='16' viewBox='0 0 120 16'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='0.9'%3E%3Cpath d='M0 8h26'/%3E%3Cpath d='M34 8l8-6 8 6-8 6z'/%3E%3Cpath d='M56 8h16'/%3E%3Ccircle cx='82' cy='8' r='3'/%3E%3Cpath d='M92 1v14'/%3E%3Cpath d='M98 8h22'/%3E%3C/g%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: center; opacity: .5; }
+
+  .nav-link { position: relative; display: inline-block; padding: .3rem 0; font-size: .8rem; font-weight: 600; color: rgba(6,78,59,.58); transition: color .2s; }
+  .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 1.5px; background: #D4AF37; transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.22,1,.36,1); }
+  .nav-link:hover { color: #064E3B; }
+  .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+  .nav-link.active { color: #064E3B; }
+
+  @keyframes platterIn { 0% { transform: rotate(-52deg) translateX(9%) scale(.84); opacity: 0; } 55% { opacity: 1; } 100% { transform: rotate(0) translateX(0) scale(1); opacity: 1; } }
+  .platter-in { animation: platterIn .9s cubic-bezier(.22,1,.36,1) both; }
+  #hero-platter-wrap { transition: transform .38s cubic-bezier(.6,0,.78,0), opacity .3s ease-in; }
+  #hero-platter-wrap.is-out { transform: rotate(52deg) translateX(-9%) scale(.84); opacity: 0; }
+  #hero-copy.is-out, #hero-card.is-out { opacity: 0; transform: translateY(14px); transition: opacity .25s ease, transform .25s ease; }
+  @keyframes lineIn { 0% { transform: translateY(108%) rotate(2.5deg); opacity: 0; } 100% { transform: translateY(0) rotate(0); opacity: 1; } }
+  .line-in { animation: lineIn .8s cubic-bezier(.22,1,.36,1) both; }
+  .line-in.d1 { animation-delay: .07s; } .line-in.d2 { animation-delay: .14s; } .line-in.d3 { animation-delay: .22s; } .line-in.d4 { animation-delay: .3s; }
+  .reveal { display: block; overflow: hidden; padding-bottom: .06em; }
+  @keyframes fadeUp { 0% { opacity: 0; transform: translateY(18px); } 100% { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp .8s cubic-bezier(.22,1,.36,1) both; }
+  .fade-up.d1 { animation-delay: .1s; } .fade-up.d2 { animation-delay: .2s; } .fade-up.d3 { animation-delay: .3s; }
+  @keyframes toastIn { 0% { opacity: 0; transform: translateY(14px) scale(.97); } 100% { opacity: 1; transform: none; } }
+  .toast-in { animation: toastIn .32s cubic-bezier(.22,1,.36,1) both; }
+  .toast-out { opacity: 0; transform: translateY(10px); transition: all .3s ease; }
+  @keyframes spinSlow { to { transform: rotate(360deg); } }
+  .spin-slow { animation: spinSlow 90s linear infinite; }
+  .modal-backdrop { backdrop-filter: blur(6px); background: rgba(2,44,34,.45); }
+  .card-lift { transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, border-color .3s; }
+  .card-lift:hover { transform: translateY(-4px); box-shadow: 0 26px 50px -30px rgba(2,44,34,.45); }
+  .drop-cap::first-letter { font-family: 'Cormorant Garamond', Georgia, serif; float: left; font-size: 3.6rem; line-height: .82; padding-right: .12em; padding-top: .06em; color: #064E3B; font-weight: 600; }
+  .accordion-body { overflow: hidden; transition: max-height .4s cubic-bezier(.22,1,.36,1), opacity .3s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<div class="min-h-screen bg-pajoh-ivory">
+
+  <div class="fixed inset-x-0 top-0 z-50">
+    <div class="bg-pajoh-green text-pajoh-ivory">
+      <div class="mx-auto flex max-w-[1400px] items-center justify-center gap-2 px-4 py-[7px] text-[10px] tracking-[0.12em] sm:text-[10.5px]">
+        <i data-lucide="sparkles" class="h-3 w-3 shrink-0 text-pajoh-gold"></i>
+        <p id="announcement-text" class="truncate uppercase">Gratis pengiriman area Banda Aceh untuk pesanan di atas Rp 250.000</p>
+      </div>
+    </div>
+    <header class="border-b border-pajoh-green/10 bg-pajoh-ivory/[0.85] backdrop-blur-xl">
+      <div class="mx-auto flex h-[70px] max-w-[1400px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
+        <a href="#/home" class="group flex items-center gap-3">
+          <span class="serif text-[30px] font-bold leading-none tracking-tight text-pajoh-green">Pajôh</span>
+          <span class="hidden h-8 w-px bg-pajoh-green/[0.15] sm:block"></span>
+          <span class="hidden text-[8.5px] font-semibold uppercase leading-tight tracking-[0.28em] text-pajoh-green/[0.45] sm:block">Aceh<br />Heritage Kitchen</span>
+        </a>
+
+        <nav class="hidden items-center gap-7 lg:flex" aria-label="Navigasi utama">
+          <a href="#/home" data-nav="home" class="nav-link">Beranda</a>
+          <a href="#/menu" data-nav="menu" class="nav-link">Menu</a>
+          <a href="#/story" data-nav="story" class="nav-link">Kisah Kuliner</a>
+          <a href="#/about" data-nav="about" class="nav-link">Tentang</a>
+          <a href="#/contact" data-nav="contact" class="nav-link">Kontak</a>
+        </nav>
+
+        <div class="flex items-center gap-1.5">
+          <button onclick="openSearch()" class="icon-btn" aria-label="Cari menu">
+            <i data-lucide="search" class="h-[18px] w-[18px]"></i>
+          </button>
+          <a href="#/cart" class="icon-btn relative" aria-label="Keranjang belanja">
+            <i data-lucide="shopping-bag" class="h-[18px] w-[18px]"></i>
+            <span data-cart-count class="absolute -right-1 -top-1 hidden min-w-[18px] rounded-full bg-pajoh-gold px-1 text-center text-[10px] font-bold leading-[18px] text-pajoh-forest">0</span>
+          </a>
+          <a href="#/admin" class="btn btn-outline btn-sm ml-1 hidden !px-4 sm:inline-flex" aria-label="Admin Dashboard">
+            <i data-lucide="layout-dashboard" class="h-4 w-4"></i><span class="hidden md:inline">Admin</span>
+          </a>
+          <button onclick="toggleMobileNav()" class="icon-btn lg:hidden" aria-label="Buka menu">
+            <i data-lucide="menu" class="h-5 w-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav" class="hidden border-t border-pajoh-green/10 bg-pajoh-ivory px-4 pb-5 pt-2 lg:hidden">
+        <nav class="flex flex-col divide-y divide-pajoh-green/5">
+          <a href="#/home" class="py-3 text-sm font-semibold text-pajoh-green">Beranda</a>
+          <a href="#/menu" class="py-3 text-sm font-semibold text-pajoh-green">Menu</a>
+          <a href="#/story" class="py-3 text-sm font-semibold text-pajoh-green">Kisah Kuliner</a>
+          <a href="#/about" class="py-3 text-sm font-semibold text-pajoh-green">Tentang Kami</a>
+          <a href="#/contact" class="py-3 text-sm font-semibold text-pajoh-green">Kontak</a>
+          <a href="#/cart" class="py-3 text-sm font-semibold text-pajoh-green">Keranjang</a>
+          <a href="#/admin" class="py-3 text-sm font-semibold text-pajoh-gold">Admin Dashboard</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main id="app" class="pt-[101px]"></main>
+
+  <footer class="relative overflow-hidden bg-pajoh-forest text-pajoh-ivory">
+    <div class="aceh-band opacity-30"></div>
+    <div class="mx-auto grid max-w-[1400px] gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-10">
+      <div class="lg:col-span-2">
+        <p class="serif text-3xl font-bold">Pajôh</p>
+        <p class="mt-1 text-[10px] uppercase tracking-[0.3em] text-pajoh-gold">Authentic Taste, Heritage of Aceh</p>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-pajoh-ivory/60">Dapur rumahan di Banda Aceh yang menghidangkan resep indatu dengan rempah pilihan—tanpa pengawet, dimasak per pesanan.</p>
+        <div class="mt-5 flex gap-2">
+          <a href="#/contact" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.15] text-pajoh-ivory/70 transition hover:border-pajoh-gold hover:text-pajoh-gold" aria-label="Instagram"><i data-lucide="instagram" class="h-4 w-4"></i></a>
+          <a href="#/contact" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.15] text-pajoh-ivory/70 transition hover:border-pajoh-gold hover:text-pajoh-gold" aria-label="Facebook"><i data-lucide="facebook" class="h-4 w-4"></i></a>
+          <button onclick="chatWhatsApp()" class="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.15] text-pajoh-ivory/70 transition hover:border-pajoh-gold hover:text-pajoh-gold" aria-label="WhatsApp"><i data-lucide="message-circle" class="h-4 w-4"></i></button>
+        </div>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.25em] text-pajoh-gold">Navigasi</p>
+        <ul class="mt-4 space-y-2 text-sm text-pajoh-ivory/[0.65]">
+          <li><a href="#/menu" class="transition hover:text-pajoh-gold">Menu Lengkap</a></li>
+          <li><a href="#/story" class="transition hover:text-pajoh-gold">Kisah Kuliner</a></li>
+          <li><a href="#/about" class="transition hover:text-pajoh-gold">Tentang Pajôh</a></li>
+          <li><a href="#/cart" class="transition hover:text-pajoh-gold">Keranjang</a></li>
+          <li><a href="#/admin" class="transition hover:text-pajoh-gold">Admin Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.25em] text-pajoh-gold">Dapur Kami</p>
+        <ul class="mt-4 space-y-3 text-sm text-pajoh-ivory/[0.65]">
+          <li class="flex gap-2"><i data-lucide="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-pajoh-gold/70"></i><span id="footer-address">Jl. Tgk. H. M. Daud Beureueh No. 27, Peunayong, Banda Aceh</span></li>
+          <li class="flex gap-2"><i data-lucide="clock" class="mt-0.5 h-4 w-4 shrink-0 text-pajoh-gold/70"></i><span id="footer-hours">Senin – Sabtu, 08.00 – 20.00 WIB</span></li>
+          <li class="flex gap-2"><i data-lucide="phone" class="mt-0.5 h-4 w-4 shrink-0 text-pajoh-gold/70"></i><a id="footer-wa" href="https://wa.me/6281269002470" target="_blank" rel="noopener" class="transition hover:text-pajoh-gold">+62 812-6900-2470</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="mx-auto flex max-w-[1400px] flex-col gap-2 px-4 py-5 text-[11px] text-pajoh-ivory/[0.45] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-10">
+        <p>© <span id="footer-year">2026</span> Pajôh. Seluruh hak cipta dilindungi.</p>
+        <p>Dibuat dengan bangga di Banda Aceh, Aceh.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div id="modal-root"></div>
+
+<div id="search-modal" class="fixed inset-0 z-[70] hidden">
+  <div class="modal-backdrop absolute inset-0" onclick="closeSearch()"></div>
+  <div class="relative mx-auto mt-24 w-[92%] max-w-xl rounded-2xl bg-white p-4 shadow-2xl fade-up sm:mt-32">
+    <div class="flex items-center gap-3 border-b border-pajoh-green/10 pb-3">
+      <i data-lucide="search" class="h-5 w-5 text-pajoh-green/[0.45]"></i>
+      <input id="search-input" type="text" autocomplete="off" class="w-full bg-transparent text-base text-pajoh-ink outline-none placeholder:text-pajoh-ink/30" placeholder="Cari sie reuboh, timphan, sambal…" oninput="renderSearchResults(this.value)" />
+      <button onclick="closeSearch()" class="rounded-lg p-1.5 text-pajoh-green/40 transition hover:bg-pajoh-ivory" aria-label="Tutup pencarian"><i data-lucide="x" class="h-4 w-4"></i></button>
+    </div>
+    <div id="search-results" class="mt-2 max-h-[50vh] overflow-y-auto"></div>
+    <p class="mt-3 text-[10px] uppercase tracking-[0.2em] text-pajoh-green/[0.35]">Tekan Esc untuk menutup</p>
+  </div>
+</div>
+
+<div id="toasts" class="pointer-events-none fixed bottom-5 right-5 z-[90] flex flex-col items-end gap-2"></div>
+
+<script>
+/* ============================================================
+   PAJÔH — DATA AWAL, STATE, UTILITAS, ROUTER, HERO SHOWCASE
+   ============================================================ */
+
+const STORAGE_KEY = 'pajoh.app.v1';
+
+const FALLBACK_IMG = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">' +
+  '<defs><radialGradient id="g" cx="50%" cy="45%" r="62%"><stop offset="0%" stop-color="#F3EFE7"/><stop offset="100%" stop-color="#E2D9C8"/></radialGradient></defs>' +
+  '<rect width="600" height="600" fill="url(#g)"/>' +
+  '<circle cx="300" cy="300" r="196" fill="#FAF8F5" stroke="#D4AF37" stroke-width="4"/>' +
+  '<circle cx="300" cy="300" r="166" fill="none" stroke="#064E3B" stroke-opacity=".22" stroke-width="2" stroke-dasharray="6 10"/>' +
+  '<path d="M300 200c30 0 54 24 54 54s-24 54-54 54-54-24-54-54 24-54 54-54z" fill="none" stroke="#D4AF37" stroke-opacity=".55" stroke-width="3"/>' +
+  '<text x="300" y="330" font-family="Georgia,serif" font-size="62" fill="#064E3B" text-anchor="middle">Pajôh</text>' +
+  '<text x="300" y="372" font-family="Helvetica,Arial,sans-serif" font-size="15" letter-spacing="7" fill="#D4AF37" text-anchor="middle">ACEH</text>' +
+  '</svg>'
+);
+
+const SEED_PRODUCTS = [
+  {
+    id: 'sie-reuboh',
+    name: 'Sie Reuboh',
+    eyebrow: 'Daging Masak Cuka',
+    subtitle: 'Resep Indatu • Aceh Besar',
+    kicker: 'Hidangan Warisan Terfavorit',
+    category: 'Lauk Utama',
+    price: 85000,
+    status: 'Tersedia',
+    featured: true,
+    rating: 4.9,
+    likes: 132,
+    image: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1100&q=80',
+    desc: 'Daging sapi pilihan direbus perlahan dalam cuka aren khas Aceh selama berjam-jam, hingga kuahnya menyusut pekat dan bumbu meresap sampai ke serat terdalam.',
+    story: 'Di balik semangkuk Sie Reuboh ada cerita tentang ketahanan. Dahulu para pejuang Aceh membawa bekal ini ke hutan dan perbukitan: daging yang dimasak lama bersama cuka aren dan rempah tidak mudah basi, bahkan semakin sedap setelah dipanaskan berulang. Di dapur Pajôh kami mengikuti alur yang sama—cuka aren difermentasi sendiri, daging direbus empat jam dengan api kecil, dan kuah dibiarkan menyusut hingga mengilap. Tidak ada jalan pintas, hanya kesabaran yang diwariskan.',
+    spices: ['Daging Sapi Pilihan', 'Cuka Aren Aceh', 'Cabai Merah & Rawit', 'Kunyit & Lengkuas', 'Garam Kasar'],
+    serving: 'Nikmati hangat bersama nasi putih pulen, ulekan cabai rawit, dan irisan timun. Simpan dalam wadah kaca tertutup di lemari pendingin hingga lima hari; panaskan dengan api kecil tanpa menambahkan air.'
+  },
+  {
+    id: 'ayam-tangkap',
+    name: 'Ayam Tangkap',
+    eyebrow: 'Khas Aceh Rayeuk',
+    subtitle: 'Resep Indatu • Banda Aceh',
+    kicker: 'Aroma Rempah yang Mengundang',
+    category: 'Lauk Utama',
+    price: 65000,
+    status: 'Tersedia',
+    featured: true,
+    rating: 4.8,
+    likes: 118,
+    image: 'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1100&q=80',
+    desc: 'Ayam kampung muda digoreng garing bersama daun temurui, pandan wangi, dan cabai hijau. Aroma rempahnya memenuhi ruangan sebelum suapan pertama menyentuh lidah.',
+    story: 'Nama "tangkap" datang dari cara menyajikannya: ayam goreng diangkat dari wajan panas lalu langsung ditumpuk bersama daun temurui dan pandan yang ikut digoreng garing. Daun-daun itu bukan hiasan—merekalah yang memberi aroma khas, sedikit pahit segar yang memotong gurihnya daging. Kami hanya memakai ayam kampung muda dan minyak kelapa bersih, digoreng dua tahap agar renyah di luar dan tetap berair di dalam.',
+    spices: ['Ayam Kampung Muda', 'Daun Temurui (Salam Koja)', 'Daun Pandan Wangi', 'Cabai Hijau', 'Bawang Putih & Jahe'],
+    serving: 'Sajikan segera selagi hangat bersama nasi putih dan sambal ganja. Bila disimpan, pisahkan daun goreng dari ayam dan hangatkan di air fryer 160°C selama lima menit agar kerenyahannya kembali.'
+  },
+  {
+    id: 'keumamah-tumis',
+    name: 'Keumamah Tumis',
+    eyebrow: 'Ikan Kayu Warisan Indatu',
+    subtitle: 'Resep Indatu • Pidie',
+    kicker: 'Ketegaran Rasa dari Pesisir',
+    category: 'Lauk Utama',
+    price: 55000,
+    status: 'Tersedia',
+    featured: true,
+    rating: 4.8,
+    likes: 96,
+    image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1100&q=80',
+    desc: 'Ikan tongkol yang dikeringkan hingga menjadi kayu, lalu direbus dan ditumis bersama asam sunti serta cabai hijau keriting. Teksturnya kenyal, rasanya asam-asin berlapis.',
+    story: 'Keumamah adalah cara nelayan Aceh menghormati laut. Ikan tongkol direbus, dijemur di bawah matahari, lalu disimpan hingga mengeras seperti kayu—supaya bisa menemani hari-hari ketika perahu tak bisa melaut. Ketika dimasak, ikan itu kembali lembut dalam tumisan asam sunti dan cabai hijau. Di Pajôh, keumamah dibuat dari tongkol segar yang kami keringkan sendiri, bukan ikan kayu pabrikan.',
+    spices: ['Ikan Tongkol Kayu', 'Asam Sunti', 'Cabai Hijau Keriting', 'Serai & Daun Jeruk', 'Bawang Merah Aceh'],
+    serving: 'Hangatkan dengan sedikit air dan api kecil, lalu sajikan bersama nasi hangat. Keumamah tumis tahan tiga hari di lemari pendingin dan semakin matang rasanya pada hari kedua.'
+  },
+  {
+    id: 'sambal-ganja',
+    name: 'Sambal Ganja',
+    eyebrow: 'Asam Udeung Segar',
+    subtitle: 'Racikan Dapur • Aceh Besar',
+    kicker: 'Pedas yang Membuat Ketagihan',
+    category: 'Sambal & Bumbu',
+    price: 35000,
+    status: 'Tersedia',
+    featured: true,
+    rating: 4.9,
+    likes: 204,
+    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1100&q=80',
+    desc: 'Bukan sambal yang membakar, melainkan paduan udang segar sangrai, belimbing wuluh, dan serai muda. Dinamai "ganja" karena rasanya yang membuat siapa pun ingin menambah.',
+    story: 'Orang Aceh menyebutnya ganja bukan karena apa pun selain efeknya: sekali mencoba, ingin lagi. Udang segar disangrai hingga kering dan harum, lalu ditumbuk kasar bersama belimbing wuluh, serai muda, dan cabai rawit hijau. Tidak ada tomat, tidak ada terasi—hanya asam segar dan aroma serai yang membuat sambal ini terasa ringan walau pedasnya menempel lama.',
+    spices: ['Udang Segar Sangrai', 'Belimbing Wuluh', 'Serai Muda', 'Daun Jeruk Purut', 'Cabai Rawit Hijau'],
+    serving: 'Sajikan sebagai pendamping ayam tangkap, ikan bakar, atau nasi hangat. Simpan di wadah kaca tertutup dalam lemari pendingin maksimal empat hari; gunakan sendok bersih setiap kali mengambil.'
+  },
+  {
+    id: 'bumbu-kari-aceh',
+    name: 'Bumbu Kari Aceh Siap Masak',
+    eyebrow: 'Pasta Rempah Segar',
+    subtitle: 'Racikan Dapur • Banda Aceh',
+    kicker: 'Rempah yang Siap Menyala',
+    category: 'Sambal & Bumbu',
+    price: 28000,
+    status: 'Tersedia',
+    featured: false,
+    rating: 4.7,
+    likes: 64,
+    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1100&q=80',
+    desc: 'Pasta bumbu kari Aceh yang ditumbuk segar dari cabai kering, kunyit, ketumbar, dan daun kari. Cukup tumis dan tambahkan santan, hidangan kari rumahan siap dalam dua puluh menit.',
+    story: 'Bumbu kari Aceh berbeda dari kari mana pun: lebih kering, lebih aromatik, dengan asam sunti yang menahan rasa gurih santan agar tidak berat. Kami menumbuk bumbu ini setiap awal pekan dalam jumlah kecil, lalu mengemasnya dalam wadah kaca agar aromanya tidak hilang. Cocok untuk daging, ayam, telur, bahkan tahu dan tempe.',
+    spices: ['Cabai Kering Aceh', 'Kunyit & Ketumbar', 'Daun Kari', 'Bawang Merah & Putih', 'Serai & Lengkuas'],
+    serving: 'Tumis dua sendok makan bumbu hingga harum, masukkan protein pilihan, tuang santan, dan masak hingga mengental. Simpan di freezer hingga tiga bulan.'
+  },
+  {
+    id: 'timphan-srikaya',
+    name: 'Timphan Balon Srikaya (Isi 10)',
+    eyebrow: 'Kue Tradisional',
+    subtitle: 'Resep Indatu • Aceh Besar',
+    kicker: 'Manis yang Dibungkus Sabar',
+    category: 'Kue Tradisional',
+    price: 30000,
+    status: 'Pre-Order',
+    featured: false,
+    rating: 4.8,
+    likes: 87,
+    image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=1100&q=80',
+    desc: 'Adonan tepung ketan dan santan yang lembut, dibungkus daun pisang, dengan isian srikaya manis-legit yang lumer di mulut.',
+    story: 'Timphan selalu hadir di meja hari raya Aceh, disusun di atas talam bersama kue lain. Adonannya harus kalis tapi tidak keras, isian srikayanya dimasak perlahan hingga mengilap, dan daun pisangnya dilayukan dulu agar tidak pecah saat dikukus. Kami menerima pre-order karena timphan paling nikmat dua jam setelah matang.',
+    spices: ['Tepung Ketan', 'Santan Kelapa', 'Srikaya (Kaya)', 'Gula Aren', 'Daun Pisang'],
+    serving: 'Sajikan pada suhu ruang maksimal enam jam setelah dikukus. Bila disimpan di lemari pendingin, kukus kembali lima menit agar lembutnya pulih.'
+  },
+  {
+    id: 'keukarah-renyah',
+    name: 'Keukarah Renyah (Isi 12)',
+    eyebrow: 'Kue Tradisional',
+    subtitle: 'Resep Indatu • Aceh Barat',
+    kicker: 'Anyaman yang Renyah',
+    category: 'Kue Tradisional',
+    price: 25000,
+    status: 'Tersedia',
+    featured: false,
+    rating: 4.7,
+    likes: 73,
+    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1100&q=80',
+    desc: 'Adonan tepung beras dan santan yang dianyam halus lalu digoreng hingga keemasan—renyah berlapis dengan rasa gurih-manis yang ringan.',
+    story: 'Keukarah dibuat dengan cetakan khusus dan tangan yang terlatih: adonan dituang membentuk anyaman tipis, lalu digoreng dalam minyak panas sampai kuning keemasan. Dulu kue ini hanya muncul saat Maulid dan hari raya, kini Pajôh membuatnya dalam kemasan kecil agar bisa dinikmati kapan saja.',
+    spices: ['Tepung Beras', 'Santan Kelapa', 'Gula Pasir', 'Garam', 'Minyak Kelapa'],
+    serving: 'Simpan dalam toples kedap udara hingga dua minggu. Cocok dinikmati bersama kopi Aceh atau teh tarik.'
+  },
+  {
+    id: 'kue-bhoi-mini',
+    name: 'Kue Bhoi Mini',
+    eyebrow: 'Kue Tradisional',
+    subtitle: 'Resep Indatu • Banda Aceh',
+    kicker: 'Legit dari Cetakan Kecil',
+    category: 'Kue Tradisional',
+    price: 25000,
+    status: 'Habis',
+    featured: false,
+    rating: 4.6,
+    likes: 51,
+    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1100&q=80',
+    desc: 'Kue basah dari tepung beras, kelapa parut, dan gula aren yang dikukus dalam cetakan kecil; legit, lembut, dan harum daun pandan.',
+    story: 'Kue bhoi adalah kue pengiring doa: hadir di kenduri, dibagikan dalam bungkus kecil, dan selalu cukup untuk satu suapan. Kami membuatnya mini agar bisa dinikmati tanpa merasa terlalu kenyang, tetapi tetap dengan resep yang sama—kelapa parut segar dan gula aren yang direbus sendiri.',
+    spices: ['Tepung Beras', 'Kelapa Parut', 'Gula Aren', 'Pandan', 'Garam'],
+    serving: 'Nikmati pada hari pembuatan; kue basah ini paling baik disantap hangat. Simpan sisa di kulkas dan kukus kembali tiga menit.'
+  }
+];
+
+const DEFAULT_SETTINGS = {
+  wa: '6281269002470',
+  address: 'Jl. Tgk. H. M. Daud Beureueh No. 27, Peunayong, Banda Aceh 23122',
+  hours: 'Senin – Sabtu, 08.00 – 20.00 WIB',
+  announcement: 'Gratis pengiriman area Banda Aceh untuk pesanan di atas Rp 250.000',
+  highlight: 'Hidangan Warisan Terfavorit'
+};
+
+function seedState() {
+  return {
+    products: JSON.parse(JSON.stringify(SEED_PRODUCTS)),
+    categories: ['Lauk Utama', 'Sambal & Bumbu', 'Kue Tradisional'],
+    settings: Object.assign({}, DEFAULT_SETTINGS),
+    cart: {},
+    savedLikes: {}
+  };
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return seedState();
+    const parsed = JSON.parse(raw);
+    const base = seedState();
+    return {
+      products: Array.isArray(parsed.products) && parsed.products.length ? parsed.products : base.products,
+      categories: Array.isArray(parsed.categories) && parsed.categories.length ? parsed.categories : base.categories,
+      settings: Object.assign({}, DEFAULT_SETTINGS, parsed.settings || {}),
+      cart: parsed.cart && typeof parsed.cart === 'object' ? parsed.cart : {},
+      savedLikes: parsed.savedLikes && typeof parsed.savedLikes === 'object' ? parsed.savedLikes : {}
+    };
+  } catch (err) {
+    return seedState();
+  }
+}
+
+let state = loadState();
+
+const ui = {
+  heroIndex: 0,
+  heroTab: 'overview',
+  heroBusy: false,
+  menu: { q: '', cat: 'Semua', status: 'Semua', sort: 'Unggulan' },
+  adminTab: 'products',
+  editingId: null,
+  lastOrder: null,
+  mobileNav: false
+};
+
+/* ============================ UTIL ============================ */
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (err) { /* storage penuh */ }
+}
+
+function esc(value) {
+  return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+function money(n) {
+  return 'Rp ' + Number(n || 0).toLocaleString('id-ID');
+}
+
+function findProduct(id) {
+  return state.products.find(function (p) { return p.id === id; }) || null;
+}
+
+function featuredProducts() {
+  const featured = state.products.filter(function (p) { return p.featured; });
+  return (featured.length ? featured : state.products).slice(0, 4);
+}
+
+function imgFallback(img) {
+  img.onerror = null;
+  img.src = FALLBACK_IMG;
+}
+
+function imgTag(p, cls, opts) {
+  const o = opts || {};
+  const src = p && p.image && String(p.image).trim() ? String(p.image).trim() : FALLBACK_IMG;
+  return '<img src="' + esc(src) + '" alt="' + esc(o.alt || (p ? p.name : 'Hidangan Pajôh')) + '" ' +
+    (o.lazy === false ? '' : 'loading="lazy" ') +
+    'class="' + cls + '" onerror="imgFallback(this)" />';
+}
+
+function statusBadge(status) {
+  const map = {
+    'Tersedia': 'bg-pajoh-green text-white',
+    'Pre-Order': 'bg-pajoh-gold text-pajoh-forest',
+    'Habis': 'bg-pajoh-ink/[0.55] text-white'
+  };
+  return '<span class="inline-flex items-center gap-1.5 rounded-full ' + (map[status] || map['Tersedia']) +
+    ' px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.12em]"><span class="h-1.5 w-1.5 rounded-full bg-current opacity-70"></span>' +
+    esc(status) + '</span>';
+}
+
+function toast(message, type) {
+  const root = document.getElementById('toasts');
+  if (!root) return;
+  const el = document.createElement('div');
+  el.className = 'pointer-events-auto flex max-w-xs items-start gap-3 rounded-xl bg-white px-4 py-3 shadow-soft ring-1 ring-pajoh-green/10 toast-in';
+  const icon = type === 'error' ? 'alert-circle' : 'check';
+  const tone = type === 'error' ? 'bg-red-50 text-red-600' : 'bg-pajoh-green/10 text-pajoh-green';
+  el.innerHTML = '<span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ' + tone + '">' +
+    '<i data-lucide="' + icon + '" class="h-4 w-4"></i></span><p class="text-[13px] leading-snug text-pajoh-ink/80">' + esc(message) + '</p>';
+  root.appendChild(el);
+  if (window.lucide) lucide.createIcons();
+  setTimeout(function () {
+    el.classList.add('toast-out');
+    setTimeout(function () { el.remove(); }, 360);
+  }, 3000);
+}
+
+function slugifyProduct(name) {
+  let base = String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (!base) base = 'produk';
+  let id = base;
+  let n = 1;
+  while (findProduct(id)) { n += 1; id = base + '-' + n; }
+  return id;
+}
+
+function formatWaDisplay(wa) {
+  const digits = String(wa || '').replace(/\D/g, '');
+  if (digits.length >= 11 && digits.slice(0, 2) === '62') {
+    return '+' + digits.slice(0, 2) + ' ' + digits.slice(2, 5) + '-' + digits.slice(5, 9) + '-' + digits.slice(9);
+  }
+  return digits;
+}
+
+function chatWhatsApp() {
+  const text = encodeURIComponent('Halo Pajôh, saya ingin bertanya tentang menu dan jadwal pengiriman. Terima kasih!');
+  window.open('https://wa.me/' + state.settings.wa.replace(/\D/g, '') + '?text=' + text, '_blank', 'noopener');
+}
+
+/* ============================ KERANJANG ============================ */
+
+function cartEntries() {
+  return Object.keys(state.cart).map(function (id) {
+    return { p: findProduct(id), q: Number(state.cart[id]) || 0 };
+  }).filter(function (e) { return e.p && e.q > 0; });
+}
+
+function cartCount() {
+  return cartEntries().reduce(function (sum, e) { return sum + e.q; }, 0);
+}
+
+function cartSubtotal() {
+  return cartEntries().reduce(function (sum, e) { return sum + e.q * Number(e.p.price || 0); }, 0);
+}
+
+function updateCartCount() {
+  const n = cartCount();
+  document.querySelectorAll('[data-cart-count]').forEach(function (el) {
+    el.textContent = n;
+    el.classList.toggle('hidden', n === 0);
+  });
+}
+
+function addToCart(id, qty) {
+  const p = findProduct(id);
+  if (!p) return;
+  if (p.status === 'Habis') {
+    toast('Maaf, ' + p.name + ' sedang habis. Coba hidangan lain, ya.', 'error');
+    return;
+  }
+  const amount = Math.max(1, Number(qty) || 1);
+  state.cart[id] = (Number(state.cart[id]) || 0) + amount;
+  saveState();
+  updateCartCount();
+  toast(p.name + ' (' + amount + ') ditambahkan ke keranjang.');
+  if (parseRoute().path === 'cart') render();
+}
+
+function changeQty(id, delta) {
+  const next = (Number(state.cart[id]) || 0) + delta;
+  if (next <= 0) { delete state.cart[id]; } else { state.cart[id] = next; }
+  saveState();
+  updateCartCount();
+  render();
+}
+
+function removeFromCart(id) {
+  const p = findProduct(id);
+  delete state.cart[id];
+  saveState();
+  updateCartCount();
+  toast((p ? p.name : 'Item') + ' dihapus dari keranjang.');
+  render();
+}
+
+function refreshCartIfNeeded() {
+  const path = parseRoute().path;
+  if (path === 'cart' || path === 'checkout') render();
+}
+
+/* ============================ LIKE / FAVORIT ============================ */
+
+function likeCount(p) {
+  return Number(p.likes || 0) + (state.savedLikes[p.id] ? 1 : 0);
+}
+
+function toggleLike(id) {
+  if (state.savedLikes[id]) { delete state.savedLikes[id]; } else { state.savedLikes[id] = true; }
+  saveState();
+  renderHeroCard();
+}
+
+/* ============================ ROUTER ============================ */
+
+function parseRoute() {
+  const raw = (location.hash || '#/home').replace(/^#/, '');
+  const split = raw.split('?');
+  const path = split[0] || '/home';
+  const parts = path.split('/').filter(Boolean);
+  return {
+    path: parts[0] || 'home',
+    id: parts[1] || null,
+    params: new URLSearchParams(split[1] || '')
+  };
+}
+
+let lastRouteKey = '';
+
+function render() {
+  const r = parseRoute();
+  const app = document.getElementById('app');
+  const key = r.path + '/' + (r.id || '') + '?' + r.params.toString();
+
+  app.innerHTML = routeHtml(r);
+  if (window.lucide) lucide.createIcons();
+
+  updateHeader();
+  updateCartCount();
+
+  if (r.path === 'home') renderHero();
+
+  if (key !== lastRouteKey) {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    lastRouteKey = key;
+  }
+
+  if (r.path === 'story' && r.params.get('s')) {
+    const anchor = r.params.get('s');
+    setTimeout(function () {
+      const el = document.getElementById('story-' + anchor);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+  }
+
+  closeMobileNav();
+}
+
+function routeHtml(r) {
+  switch (r.path) {
+    case 'home': return homePage();
+    case 'menu': return menuPage();
+    case 'product': return productPage(r.id);
+    case 'story': return storyPage();
+    case 'about': return aboutPage();
+    case 'cart': return cartPage();
+    case 'checkout': return checkoutPage();
+    case 'contact': return contactPage();
+    case 'admin': return adminPage();
+    default: return notFoundPage();
+  }
+}
+
+function updateHeader() {
+  const r = parseRoute();
+  document.querySelectorAll('[data-nav]').forEach(function (a) {
+    a.classList.toggle('active', a.getAttribute('data-nav') === r.path);
+  });
+
+  const s = state.settings;
+  const ann = document.getElementById('announcement-text');
+  if (ann) ann.textContent = s.announcement || 'Authentic Taste, Heritage of Aceh';
+  const fa = document.getElementById('footer-address');
+  if (fa) fa.textContent = s.address;
+  const fh = document.getElementById('footer-hours');
+  if (fh) fh.textContent = s.hours;
+  const fw = document.getElementById('footer-wa');
+  if (fw) { fw.textContent = formatWaDisplay(s.wa); fw.href = 'https://wa.me/' + String(s.wa).replace(/\D/g, ''); }
+  const yr = document.getElementById('footer-year');
+  if (yr) yr.textContent = new Date().getFullYear();
+}
+
+function toggleMobileNav() {
+  const panel = document.getElementById('mobile-nav');
+  if (!panel) return;
+  ui.mobileNav = !ui.mobileNav;
+  panel.classList.toggle('hidden', !ui.mobileNav);
+}
+
+function closeMobileNav() {
+  const panel = document.getElementById('mobile-nav');
+  if (!panel) return;
+  ui.mobileNav = false;
+  panel.classList.add('hidden');
+}
+
+function sectionEyebrow(text) {
+  return '<div class="flex items-center gap-3"><span class="h-px w-8 bg-pajoh-gold"></span>' +
+    '<span class="text-[10px] font-bold uppercase tracking-[0.32em] text-pajoh-green/60">' + esc(text) + '</span></div>';
+}
+
+/* ============================ HERO SHOWCASE ============================ */
+
+const HERO_THEMES = [
+  { bg: '#ECF2ED', ribbonA: '#D9E7DE', ribbonB: '#C4DACA', swatch: '#D2E3D8', swatch2: '#E4EEE7' },
+  { bg: '#F8F1E2', ribbonA: '#F1E4C9', ribbonB: '#E7D2A6', swatch: '#EEDFBC', swatch2: '#F6EDD9' },
+  { bg: '#F8EDE6', ribbonA: '#F1DCCF', ribbonB: '#E8C4AE', swatch: '#EFD6C7', swatch2: '#F7E6DC' },
+  { bg: '#F0F1E2', ribbonA: '#E4E7D0', ribbonB: '#D6DBB9', swatch: '#E2E6CE', swatch2: '#EEF0E0' }
+];
+
+function heroBackgroundHtml() {
+  return '' +
+    '<div class="pointer-events-none absolute inset-0">' +
+      '<svg class="absolute inset-0 h-full w-full" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">' +
+        '<path id="ribbonA" style="fill:#D9E7DE;transition:fill .7s ease" d="M0,0 L1440,0 L1440,250 C1080,110 760,340 380,250 C220,212 90,208 0,268 Z"/>' +
+        '<path id="ribbonB" style="fill:#C4DACA;opacity:.6;transition:fill .7s ease" d="M0,900 L1440,900 L1440,640 C1120,765 820,560 480,700 C300,772 120,730 0,660 Z"/>' +
+        '<path d="M-60,470 C260,300 620,620 1500,420" fill="none" stroke="#D4AF37" stroke-width="1" opacity=".32"/>' +
+        '<path d="M-60,502 C260,332 620,652 1500,452" fill="none" stroke="#D4AF37" stroke-width="1" opacity=".16"/>' +
+      '</svg>' +
+      '<div id="hero-glow-a" class="absolute -left-24 top-1/4 h-72 w-72 rounded-full opacity-50 blur-3xl transition-colors duration-700" style="background:#D2E3D8"></div>' +
+      '<div id="hero-glow-b" class="absolute -right-20 bottom-0 h-80 w-80 rounded-full opacity-40 blur-3xl transition-colors duration-700" style="background:#E4EEE7"></div>' +
+    '</div>';
+}
+
+function homePage() {
+  return '' +
+    '<section id="hero-section" class="relative overflow-hidden transition-colors duration-700" style="background:#ECF2ED">' +
+      heroBackgroundHtml() +
+      '<div id="hero-stage" class="relative mx-auto flex max-w-[1400px] flex-col justify-center px-4 pb-14 pt-10 sm:px-6 lg:min-h-[calc(100vh-101px)] lg:px-10 lg:pb-12 lg:pt-14"></div>' +
+    '</section>' +
+    brandStripHtml() +
+    storyTeaserHtml() +
+    philosophyHtml();
+}
+
+function renderHero() {
+  const list = featuredProducts();
+  const stage = document.getElementById('hero-stage');
+  if (!stage) return;
+
+  if (!list.length) {
+    stage.innerHTML = '<div class="py-24 text-center"><p class="serif text-3xl text-pajoh-green">Belum ada hidangan unggulan</p>' +
+      '<p class="mt-2 text-sm text-pajoh-ink/60">Tambahkan produk melalui Admin Dashboard.</p>' +
+      '<a href="#/admin" class="btn btn-primary mt-6">Buka Admin</a></div>';
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  if (ui.heroIndex >= list.length) ui.heroIndex = 0;
+  const p = list[ui.heroIndex];
+  const theme = HERO_THEMES[ui.heroIndex % HERO_THEMES.length];
+
+  const sec = document.getElementById('hero-section');
+  if (sec) sec.style.backgroundColor = theme.bg;
+  const ribbonA = document.getElementById('ribbonA');
+  if (ribbonA) ribbonA.style.fill = theme.ribbonA;
+  const ribbonB = document.getElementById('ribbonB');
+  if (ribbonB) ribbonB.style.fill = theme.ribbonB;
+  const glowA = document.getElementById('hero-glow-a');
+  if (glowA) glowA.style.backgroundColor = theme.swatch;
+  const glowB = document.getElementById('hero-glow-b');
+  if (glowB) glowB.style.backgroundColor = theme.swatch2;
+
+  stage.innerHTML = heroStageHtml(list, p);
+  if (window.lucide) lucide.createIcons();
+}
+
+function heroStageHtml(list, p) {
+  const dots = list.map(function (_, i) {
+    const active = i === ui.heroIndex;
+    return '<button onclick="heroGoto(' + i + ')" aria-label="Tampilkan hidangan ' + (i + 1) + '" ' +
+      'class="rounded-full transition-all duration-500 ' + (active ? 'bg-pajoh-green' : 'bg-pajoh-green/25 hover:bg-pajoh-green/50') + '" ' +
+      'style="width:10px;height:' + (active ? '28px' : '10px') + '"></button>';
+  }).join('');
+
+  const thumbs = list.map(function (item, i) {
+    const active = i === ui.heroIndex;
+    return '<button onclick="heroGoto(' + i + ')" class="snap-start w-[150px] shrink-0 rounded-xl border p-2 text-left transition-all duration-300 ' +
+      (active ? 'border-pajoh-gold bg-white shadow-lg scale-105' : 'border-white/60 bg-white/50 hover:bg-white hover:border-pajoh-gold/40') + '">' +
+      '<div class="flex items-center gap-2">' +
+        '<div class="h-10 w-10 shrink-0 overflow-hidden rounded-full ring-1 ring-pajoh-gold/40">' + imgTag(item, 'h-full w-full object-cover') + '</div>' +
+        '<div class="min-w-0">' +
+          '<p class="truncate text-[12px] font-semibold text-pajoh-green">' + esc(item.name) + '</p>' +
+          '<p class="text-[10px] text-pajoh-ink/50">' + money(item.price) + '</p>' +
+        '</div>' +
+      '</div>' +
+    '</button>';
+  }).join('');
+
+  return '' +
+  '<div class="grid items-center gap-8 lg:grid-cols-12 lg:gap-5">' +
+
+    /* --- PIRING BERPUTAR --- */
+    '<div class="relative order-1 lg:col-span-5 xl:col-span-4">' +
+      '<div class="absolute -left-1 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-2.5 sm:flex">' + dots + '</div>' +
+      '<div class="relative mx-auto aspect-square w-[268px] sm:w-[340px] lg:w-[390px] xl:w-[430px]">' +
+        '<div class="spin-slow absolute inset-0 rounded-full border border-dashed border-pajoh-gold/[0.45]"></div>' +
+        '<div class="absolute inset-3 rounded-full bg-white/[0.45] backdrop-blur-[2px]"></div>' +
+        '<div id="hero-platter-wrap" class="platter-in absolute inset-6 overflow-hidden rounded-full shadow-[0_38px_70px_-28px_rgba(2,44,34,0.55)] ring-[7px] ring-white/80">' +
+          imgTag(p, 'h-full w-full object-cover', { lazy: false, alt: p.name + ' — hidangan Pajôh' }) +
+          '<div class="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-pajoh-gold/[0.35]"></div>' +
+        '</div>' +
+        '<div class="absolute -right-1 top-3 flex h-[76px] w-[76px] rotate-6 flex-col items-center justify-center rounded-full bg-pajoh-green text-pajoh-gold shadow-xl ring-4 ring-white/70">' +
+          '<i data-lucide="wheat" class="h-4 w-4"></i>' +
+          '<span class="mt-0.5 text-[8px] uppercase tracking-[0.18em] text-white/60">Resep</span>' +
+          '<span class="serif text-[15px] font-semibold leading-none text-white">Indatu</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+
+    /* --- TIPOGRAFI EDITORIAL --- */
+    '<div class="order-2 text-center lg:col-span-4 xl:col-span-5 lg:text-left">' +
+      '<div id="hero-copy">' +
+        '<div class="line-in d1 flex items-center justify-center gap-3 lg:justify-start">' +
+          '<span class="h-px w-8 bg-pajoh-gold"></span>' +
+          '<span class="text-[10px] font-semibold uppercase tracking-[0.28em] text-pajoh-green/[0.65]">#' + (ui.heroIndex + 1) + ' ' + esc(p.kicker || state.settings.highlight) + '</span>' +
+        '</div>' +
+        '<h1 class="mt-5">' +
+          '<span class="reveal"><span class="line-in d2 block text-[13px] uppercase tracking-[0.4em] text-pajoh-green/70 sm:text-sm">' + esc(p.eyebrow) + '</span></span>' +
+          '<span class="reveal mt-1"><span class="line-in d3 block serif text-[42px] font-bold leading-[0.92] text-pajoh-green sm:text-6xl xl:text-[68px]">' + esc(p.name) + '</span></span>' +
+        '</h1>' +
+        '<p class="line-in d4 mx-auto mt-5 max-w-md text-[13.5px] leading-relaxed text-pajoh-ink/[0.65] lg:mx-0">' + esc(p.desc) + '</p>' +
+        '<div class="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start">' +
+          '<button onclick="heroStoryLink()" class="btn btn-outline"><i data-lucide="book-open" class="h-4 w-4"></i> Cerita Kuliner</button>' +
+          '<button onclick="heroAddToCart()" class="btn btn-primary">Pesan Sekarang <i data-lucide="shopping-bag" class="h-4 w-4"></i></button>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+
+    /* --- KARTU INFO MENGAMBANG --- */
+    '<div class="order-3 lg:col-span-3">' +
+      '<div id="hero-card" class="fade-up mx-auto w-full max-w-[350px] rounded-2xl bg-white p-5 shadow-xl ring-1 ring-pajoh-green/10 lg:max-w-none">' +
+        heroCardInner(p) +
+      '</div>' +
+    '</div>' +
+  '</div>' +
+
+  /* --- KARUSEL THUMBNAIL --- */
+  '<div class="mt-10 lg:mt-12">' +
+    '<div class="mx-auto flex max-w-3xl items-center gap-2 sm:gap-3">' +
+      '<button onclick="heroStep(-1)" class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-pajoh-green/[0.15] bg-white/70 text-pajoh-green transition hover:bg-white hover:border-pajoh-gold" aria-label="Hidangan sebelumnya"><i data-lucide="chevron-left" class="h-4 w-4"></i></button>' +
+      '<div class="no-scrollbar flex flex-1 snap-x gap-3 overflow-x-auto px-1 py-1">' + thumbs + '</div>' +
+      '<button onclick="heroStep(1)" class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-pajoh-green/[0.15] bg-white/70 text-pajoh-green transition hover:bg-white hover:border-pajoh-gold" aria-label="Hidangan berikutnya"><i data-lucide="chevron-right" class="h-4 w-4"></i></button>' +
+    '</div>' +
+  '</div>';
+}
+
+function heroCardInner(p) {
+  const overviewActive = ui.heroTab === 'overview';
+  const tabBtn = function (key, label) {
+    const active = ui.heroTab === key;
+    return '<button onclick="setHeroTab(\'' + key + '\')" class="flex-1 rounded-lg py-2 text-[10px] font-bold uppercase tracking-[0.14em] transition-all duration-300 ' +
+      (active ? 'bg-white text-pajoh-green shadow-sm' : 'text-pajoh-green/[0.45] hover:text-pajoh-green/70') + '">' + label + '</button>';
+  };
+
+  const overview = '' +
+    '<div class="fade-up">' +
+      '<div class="mt-4 flex flex-wrap gap-2">' +
+        '<span class="rounded-lg bg-pajoh-green/10 px-3 py-1.5 text-[13px] font-bold text-pajoh-green">' + money(p.price) + '</span>' +
+        '<span class="rounded-lg bg-pajoh-gold/20 px-3 py-1.5 text-[13px] font-bold text-[#8A6A1F]">★ ' + (p.rating || 4.8) + '</span>' +
+        '<span class="rounded-lg bg-pajoh-ivory px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-pajoh-green/60">' + esc(p.category) + '</span>' +
+      '</div>' +
+      '<p class="mt-4 text-[9.5px] font-semibold uppercase tracking-[0.22em] text-pajoh-gold">' + esc(p.subtitle) + '</p>' +
+      '<h2 class="serif mt-1 text-[26px] font-semibold leading-tight text-pajoh-green">' + esc(p.name) + '</h2>' +
+      '<p class="mt-2 text-[12.5px] leading-relaxed text-pajoh-ink/[0.65]">' + esc(p.desc) + '</p>' +
+      '<div class="mt-4 flex items-center justify-between gap-2 border-t border-dashed border-pajoh-green/[0.15] pt-4">' +
+        '<button onclick="toggleLike(\'' + p.id + '\')" class="group inline-flex items-center gap-1.5 text-[12px] font-semibold ' + (state.savedLikes[p.id] ? 'text-rose-500' : 'text-pajoh-ink/[0.45] hover:text-rose-500') + '" aria-label="Favoritkan ' + esc(p.name) + '">' +
+          '<i data-lucide="heart" class="h-4 w-4 ' + (state.savedLikes[p.id] ? 'fill-current' : '') + ' transition-transform group-active:scale-125"></i>' +
+          '<span>' + likeCount(p) + '</span>' +
+        '</button>' +
+        '<a href="#/product/' + encodeURIComponent(p.id) + '" class="inline-flex items-center gap-1 text-[11.5px] font-bold uppercase tracking-[0.1em] text-pajoh-green transition hover:text-pajoh-gold">Lihat Detail <i data-lucide="arrow-up-right" class="h-3.5 w-3.5"></i></a>' +
+      '</div>' +
+    '</div>';
+
+  const ingredients = '' +
+    '<div class="fade-up">' +
+      '<p class="mt-4 text-[9.5px] font-bold uppercase tracking-[0.22em] text-pajoh-green/[0.45]">Rempah &amp; Bahan Kunci</p>' +
+      '<ul class="mt-3 space-y-2">' +
+        (p.spices || []).map(function (s) {
+          return '<li class="flex items-start gap-2 rounded-lg bg-pajoh-ivory px-3 py-2 text-[12px] text-pajoh-ink/75">' +
+            '<i data-lucide="leaf" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-pajoh-green/50"></i><span>' + esc(s) + '</span></li>';
+        }).join('') +
+      '</ul>' +
+      '<button onclick="heroAddToCart()" class="btn btn-gold btn-sm mt-4 w-full">Tambah ke Keranjang <i data-lucide="plus" class="h-3.5 w-3.5"></i></button>' +
+      '<p class="mt-2 text-center text-[10px] text-pajoh-ink/40">Dimasak segar setiap pagi di Banda Aceh</p>' +
+    '</div>';
+
+  return '' +
+    '<div class="flex rounded-xl bg-pajoh-ivory p-1">' + tabBtn('overview', 'Overview') + tabBtn('ingredients', 'Ingredients') + '</div>' +
+    (overviewActive ? overview : ingredients);
+}
+
+function renderHeroCard() {
+  const el = document.getElementById('hero-card');
+  const list = featuredProducts();
+  if (!el || !list.length) return;
+  const p = list[ui.heroIndex];
+  el.classList.remove('fade-up');
+  el.innerHTML = heroCardInner(p);
+  void el.offsetWidth;
+  el.classList.add('fade-up');
+  if (window.lucide) lucide.createIcons();
+}
+
+function setHeroTab(tab) {
+  if (ui.heroTab === tab) return;
+  ui.heroTab = tab;
+  renderHeroCard();
+}
+
+function heroGoto(index) {
+  const list = featuredProducts();
+  if (!list.length || ui.heroBusy) return;
+  const next = ((index % list.length) + list.length) % list.length;
+  if (next === ui.heroIndex) return;
+
+  ui.heroBusy = true;
+  const platter = document.getElementById('hero-platter-wrap');
+  const copy = document.getElementById('hero-copy');
+  const card = document.getElementById('hero-card');
+  if (platter) platter.classList.add('is-out');
+  if (copy) copy.classList.add('is-out');
+  if (card) card.classList.add('is-out');
+
+  setTimeout(function () {
+    ui.heroIndex = next;
+    ui.heroTab = 'overview';
+    ui.heroBusy = false;
+    renderHero();
+  }, 360);
+}
+
+function heroStep(delta) {
+  heroGoto(ui.heroIndex + delta);
+}
+
+function heroAddToCart() {
+  const list = featuredProducts();
+  if (!list.length) return;
+  addToCart(list[ui.heroIndex].id, 1);
+}
+
+function heroStoryLink() {
+  const list = featuredProducts();
+  if (!list.length) return;
+  const p = list[ui.heroIndex];
+  const storyMap = { 'sie-reuboh': 'sie-reuboh', 'keumamah-tumis': 'keumamah', 'timphan-srikaya': 'timphan' };
+  if (storyMap[p.id]) {
+    location.hash = '#/story?s=' + storyMap[p.id];
+  } else {
+    location.hash = '#/product/' + encodeURIComponent(p.id);
+  }
+}
+
+/* ============================ SECTIONS BERANDA ============================ */
+
+function brandStripHtml() {
+  const items = [
+    { icon: 'book-open', title: 'Resep Indatu', text: 'Ditulis ulang dari catatan dapur keluarga, takaran demi takaran.' },
+    { icon: 'leaf', title: 'Rempah Asli Aceh', text: 'Asam sunti, temurui, dan cuka aren langsung dari petani tanah rencong.' },
+    { icon: 'shield-check', title: 'Higienis & Fresh', text: 'Dimasak per pesanan di dapur kami di Banda Aceh, tanpa pengawet.' }
+  ];
+  return '' +
+    '<section class="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 lg:px-10 lg:py-20">' +
+      '<div class="grid gap-4 sm:grid-cols-3">' +
+        items.map(function (it, i) {
+          return '<div class="fade-up card-lift rounded-2xl border border-pajoh-green/10 bg-white/70 p-6" style="animation-delay:' + (i * 90) + 'ms">' +
+            '<span class="flex h-11 w-11 items-center justify-center rounded-full bg-pajoh-green/[0.08] text-pajoh-green">' +
+              '<i data-lucide="' + it.icon + '" class="h-5 w-5"></i></span>' +
+            '<h3 class="serif mt-4 text-xl font-semibold text-pajoh-green">' + it.title + '</h3>' +
+            '<p class="mt-1.5 text-[13px] leading-relaxed text-pajoh-ink/60">' + it.text + '</p>' +
+          '</div>';
+        }).join('') +
+      '</div>' +
+    '</section>';
+}
+
+function storyTeaserHtml() {
+  return '' +
+    '<section class="relative bg-pajoh-sand/60">' +
+      '<div class="aceh-band"></div>' +
+      '<div class="mx-auto grid max-w-[1400px] items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-10 lg:py-24">' +
+        '<div class="relative order-2 lg:order-1">' +
+          '<div class="absolute -left-4 -top-4 hidden h-24 w-24 rounded-full border border-pajoh-gold/40 sm:block"></div>' +
+          '<div class="overflow-hidden rounded-[2rem] shadow-soft">' +
+            '<img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80" alt="Dapur Pajôh di Banda Aceh" loading="lazy" class="h-[340px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[420px]" onerror="imgFallback(this)" />' +
+          '</div>' +
+          '<div class="absolute -bottom-5 right-4 rounded-xl bg-white px-5 py-4 shadow-xl ring-1 ring-pajoh-green/10">' +
+            '<p class="serif text-2xl font-bold text-pajoh-green">Sejak 2016</p>' +
+            '<p class="text-[10px] uppercase tracking-[0.2em] text-pajoh-gold">Dapur Peunayong</p>' +
+          '</div>' +
+        '</div>' +
+        '<div class="order-1 lg:order-2">' +
+          sectionEyebrow('Culinary Story') +
+          '<h2 class="serif mt-4 text-4xl font-semibold leading-[1.05] text-pajoh-green sm:text-5xl">Secangkir cuka aren,<br /><span class="italic text-pajoh-gold">seratus tahun</span> ketabahan.</h2>' +
+          '<p class="mt-4 max-w-lg text-[14px] leading-relaxed text-pajoh-ink/[0.65]">Sie Reuboh bukan sekadar lauk. Ia adalah bekal yang menemani para pejuang Aceh menembus hutan, cara nenek kami menjaga rumah tetap harum, dan alasan kami percaya bahwa masakan yang dimasak perlahan selalu punya cerita.</p>' +
+          '<p class="mt-3 max-w-lg text-[14px] leading-relaxed text-pajoh-ink/[0.65]">Baca empat kisah di balik rempah yang kami pakai setiap hari—tentang kesabaran, laut, dan doa yang dibungkus daun pisang.</p>' +
+          '<a href="#/story" class="btn btn-primary mt-7">Baca Kisah Kuliner <i data-lucide="arrow-right" class="h-4 w-4"></i></a>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+}
+
+function philosophyHtml() {
+  return '' +
+    '<section class="relative overflow-hidden bg-pajoh-green py-16 text-pajoh-ivory lg:py-24">' +
+      '<svg class="pointer-events-none absolute inset-0 h-full w-full opacity-[0.13]" viewBox="0 0 1440 500" preserveAspectRatio="none" aria-hidden="true">' +
+        '<path d="M0,80 C300,220 560,10 900,140 C1160,240 1300,60 1440,150" fill="none" stroke="#D4AF37" stroke-width="1.5"/>' +
+        '<path d="M0,420 C320,300 640,520 980,380 C1200,290 1320,420 1440,360" fill="none" stroke="#D4AF37" stroke-width="1.5"/>' +
+        '<circle cx="1180" cy="120" r="150" fill="none" stroke="#D4AF37" stroke-width="1"/>' +
+        '<circle cx="220" cy="400" r="110" fill="none" stroke="#D4AF37" stroke-width="1"/>' +
+      '</svg>' +
+      '<div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6">' +
+        '<div class="aceh-band mx-auto mb-8 max-w-[220px] opacity-70"></div>' +
+        '<i data-lucide="quote" class="mx-auto h-8 w-8 text-pajoh-gold/70"></i>' +
+        '<p class="serif mt-5 text-2xl font-light italic leading-snug sm:text-4xl">“Di Aceh, makanan tidak pernah sekadar mengenyangkan. Ia adalah doa yang dihidangkan, cerita yang diwariskan, dan cara paling hangat untuk mengatakan: kami peduli.”</p>' +
+        '<p class="mt-6 text-[10px] font-semibold uppercase tracking-[0.32em] text-pajoh-gold">Filosofi Dapur Pajôh</p>' +
+        '<div class="mt-9 flex flex-wrap items-center justify-center gap-3">' +
+          '<a href="#/menu" class="btn btn-gold">Jelajahi Menu <i data-lucide="utensils" class="h-4 w-4"></i></a>' +
+          '<a href="#/contact" class="btn border border-white/25 text-pajoh-ivory hover:bg-white/10">Kunjungi Dapur</a>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+}
+/* ============================================================
+   PAJÔH — HALAMAN MENU, DETAIL, KISAH, TENTANG,
+   KERANJANG, CHECKOUT, KONTAK
+   ============================================================ */
+
+/* ============================ MENU ============================ */
+
+function filteredProducts() {
+  const q = ui.menu.q.trim().toLowerCase();
+  const list = state.products.filter(function (p) {
+    const inCat = ui.menu.cat === 'Semua' || p.category === ui.menu.cat;
+    const inStatus = ui.menu.status === 'Semua' || p.status === ui.menu.status;
+    const haystack = [p.name, p.subtitle, p.desc, p.category].concat(p.spices || []).join(' ').toLowerCase();
+    const inQuery = !q || haystack.indexOf(q) !== -1;
+    return inCat && inStatus && inQuery;
+  });
+
+  if (ui.menu.sort === 'Harga Terendah') list.sort(function (a, b) { return a.price - b.price; });
+  else if (ui.menu.sort === 'Harga Tertinggi') list.sort(function (a, b) { return b.price - a.price; });
+  else if (ui.menu.sort === 'A-Z') list.sort(function (a, b) { return a.name.localeCompare(b.name, 'id'); });
+  else list.sort(function (a, b) { return (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || (b.rating || 0) - (a.rating || 0); });
+
+  return list;
+}
+
+function categoryPillsHtml() {
+  const cats = ['Semua'].concat(state.categories);
+  return cats.map(function (c) {
+    const active = ui.menu.cat === c;
+    return '<button onclick="setMenuCat(' + JSON.stringify(c).replace(/"/g, '&quot;') + ')" class="shrink-0 rounded-full border px-4 py-2 text-[11.5px] font-semibold transition-all duration-300 ' +
+      (active ? 'border-pajoh-green bg-pajoh-green text-pajoh-ivory shadow-sm' : 'border-pajoh-green/[0.15] bg-white/60 text-pajoh-green/70 hover:border-pajoh-gold hover:text-pajoh-green') +
+      '">' + esc(c) + '</button>';
+  }).join('');
+}
+
+function menuPage() {
+  return `
+  <section class="mx-auto max-w-[1400px] px-4 pb-16 pt-10 sm:px-6 lg:px-10 lg:pt-14">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        ${sectionEyebrow('Katalog Hidangan')}
+        <h1 class="serif mt-3 text-4xl font-semibold leading-none text-pajoh-green sm:text-5xl">Our Menu</h1>
+        <p class="mt-3 max-w-xl text-[13.5px] leading-relaxed text-pajoh-ink/60">Delapan hidangan warisan yang kami masak dengan rempah asli Aceh. Pilih lauk utama untuk meja makan, sambal untuk menemani, atau kue tradisional untuk acara istimewa.</p>
+      </div>
+      <p id="menu-count" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-pajoh-green/50">${filteredProducts().length} hidangan ditemukan</p>
+    </div>
+
+    <div class="mt-8 rounded-2xl border border-pajoh-green/10 bg-white/70 p-4 sm:p-5">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div class="relative w-full lg:max-w-sm">
+          <i data-lucide="search" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-pajoh-green/40"></i>
+          <input id="menu-search" type="text" value="${esc(ui.menu.q)}" oninput="setMenuQuery(this.value)" placeholder="Cari nama hidangan, rempah…" class="input !pl-10" autocomplete="off" />
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <div>
+            <label class="sr-only" for="menu-status">Status</label>
+            <select id="menu-status" onchange="setMenuStatus(this.value)" class="select !w-auto min-w-[142px] !py-2 !text-[12px]">
+              ${['Semua', 'Tersedia', 'Pre-Order', 'Habis'].map(function (s) {
+                return '<option value="' + s + '"' + (ui.menu.status === s ? ' selected' : '') + '>Status: ' + s + '</option>';
+              }).join('')}
+            </select>
+          </div>
+          <div>
+            <label class="sr-only" for="menu-sort">Urutkan</label>
+            <select id="menu-sort" onchange="setMenuSort(this.value)" class="select !w-auto min-w-[164px] !py-2 !text-[12px]">
+              ${['Unggulan', 'Harga Terendah', 'Harga Tertinggi', 'A-Z'].map(function (s) {
+                return '<option value="' + s + '"' + (ui.menu.sort === s ? ' selected' : '') + '>Urutkan: ' + s + '</option>';
+              }).join('')}
+            </select>
+          </div>
+        </div>
+      </div>
+      <div id="menu-pills" class="mt-4 flex gap-2 overflow-x-auto pb-1 no-scrollbar">${categoryPillsHtml()}</div>
+    </div>
+
+    <div class="mt-6 flex items-center justify-between">
+      <p class="text-[10.5px] uppercase tracking-[0.18em] text-pajoh-green/40">Rempah asli • Dimasak per pesanan</p>
+      <button onclick="resetMenuFilters()" class="text-[11px] font-semibold text-pajoh-green/60 underline decoration-pajoh-gold/60 underline-offset-4 transition hover:text-pajoh-green">Reset filter</button>
+    </div>
+
+    <div id="menu-grid" class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">${menuGridHtml()}</div>
+  </section>`;
+}
+
+function menuGridHtml() {
+  const list = filteredProducts();
+  if (!list.length) {
+    return `<div class="col-span-full rounded-2xl border border-dashed border-pajoh-green/20 bg-white/60 px-6 py-16 text-center">
+      <i data-lucide="search-x" class="mx-auto h-8 w-8 text-pajoh-green/30"></i>
+      <p class="serif mt-3 text-2xl text-pajoh-green">Hidangan tidak ditemukan</p>
+      <p class="mt-1 text-[13px] text-pajoh-ink/[0.55]">Coba kata kunci lain atau reset filter untuk melihat seluruh menu.</p>
+      <button onclick="resetMenuFilters()" class="btn btn-outline btn-sm mt-5">Tampilkan semua menu</button>
+    </div>`;
+  }
+  return list.map(productCard).join('');
+}
+
+function refreshMenu() {
+  const pills = document.getElementById('menu-pills');
+  if (pills) pills.innerHTML = categoryPillsHtml();
+  const grid = document.getElementById('menu-grid');
+  if (grid) grid.innerHTML = menuGridHtml();
+  const count = document.getElementById('menu-count');
+  if (count) count.textContent = filteredProducts().length + ' hidangan ditemukan';
+  if (window.lucide) lucide.createIcons();
+}
+
+function setMenuQuery(v) { ui.menu.q = v; refreshMenu(); }
+function setMenuCat(c) { ui.menu.cat = c; refreshMenu(); }
+function setMenuStatus(v) { ui.menu.status = v; refreshMenu(); }
+function setMenuSort(v) { ui.menu.sort = v; refreshMenu(); }
+function resetMenuFilters() {
+  ui.menu = { q: '', cat: 'Semua', status: 'Semua', sort: 'Unggulan' };
+  render();
+}
+
+function productCard(p) {
+  const soldOut = p.status === 'Habis';
+  return `
+  <article class="card-lift group relative flex flex-col overflow-hidden rounded-2xl border border-pajoh-green/10 bg-white">
+    <a href="#/product/${encodeURIComponent(p.id)}" class="relative block aspect-[4/3] overflow-hidden bg-pajoh-sand" aria-label="Lihat detail ${esc(p.name)}">
+      ${imgTag(p, 'h-full w-full object-cover transition duration-700 group-hover:scale-105')}
+      <span class="absolute left-3 top-3">${statusBadge(p.status)}</span>
+      ${p.featured ? '<span class="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-pajoh-gold text-pajoh-forest shadow"><i data-lucide="star" class="h-3.5 w-3.5"></i></span>' : ''}
+    </a>
+    <div class="flex flex-1 flex-col p-5">
+      <p class="text-[9px] font-bold uppercase tracking-[0.22em] text-pajoh-gold">${esc(p.category)}</p>
+      <h3 class="serif mt-1 text-[22px] font-semibold leading-tight text-pajoh-green">${esc(p.name)}</h3>
+      <p class="mt-1 text-[11px] text-pajoh-ink/[0.45]">${esc(p.subtitle)}</p>
+      <p class="mt-2 line-clamp-2 text-[12.5px] leading-relaxed text-pajoh-ink/60">${esc(p.desc)}</p>
+      <div class="mt-4 flex items-end justify-between gap-2 border-t border-dashed border-pajoh-green/10 pt-3">
+        <div>
+          <p class="text-[9px] uppercase tracking-[0.18em] text-pajoh-ink/[0.35]">Harga</p>
+          <p class="text-[15px] font-bold text-pajoh-green">${money(p.price)}</p>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <a href="#/product/${encodeURIComponent(p.id)}" class="flex h-9 w-9 items-center justify-center rounded-full border border-pajoh-green/20 text-pajoh-green transition hover:border-pajoh-green hover:bg-pajoh-green hover:text-white" aria-label="Detail ${esc(p.name)}"><i data-lucide="eye" class="h-4 w-4"></i></a>
+          <button onclick="addToCart('${p.id}')" ${soldOut ? 'disabled' : ''} class="flex h-9 w-9 items-center justify-center rounded-full bg-pajoh-green text-white transition hover:bg-pajoh-forest disabled:opacity-40" aria-label="Tambah ${esc(p.name)} ke keranjang"><i data-lucide="plus" class="h-4 w-4"></i></button>
+        </div>
+      </div>
+    </div>
+  </article>`;
+}
+
+/* ============================ DETAIL PRODUK ============================ */
+
+function productPage(id) {
+  const p = findProduct(id);
+  if (!p) return notFoundPage();
+  const related = state.products.filter(function (x) { return x.id !== p.id; }).slice(0, 3);
+  const soldOut = p.status === 'Habis';
+
+  return `
+  <section class="mx-auto max-w-[1400px] px-4 pb-16 pt-8 sm:px-6 lg:px-10">
+    <nav class="flex items-center gap-2 text-[11px] text-pajoh-green/[0.45]">
+      <a href="#/home" class="transition hover:text-pajoh-green">Beranda</a>
+      <i data-lucide="chevron-right" class="h-3 w-3"></i>
+      <a href="#/menu" class="transition hover:text-pajoh-green">Menu</a>
+      <i data-lucide="chevron-right" class="h-3 w-3"></i>
+      <span class="text-pajoh-green/75">${esc(p.name)}</span>
+    </nav>
+
+    <div class="mt-8 grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
+      <div class="lg:col-span-5 lg:sticky lg:top-32">
+        <div class="relative mx-auto aspect-square w-full max-w-[440px]">
+          <div class="spin-slow absolute inset-0 rounded-full border border-dashed border-pajoh-gold/40"></div>
+          <div class="absolute inset-3 overflow-hidden rounded-full shadow-[0_40px_70px_-30px_rgba(2,44,34,0.5)] ring-[7px] ring-white">
+            ${imgTag(p, 'h-full w-full object-cover', { lazy: false, alt: p.name + ' di atas piring Pajôh' })}
+          </div>
+          <div class="absolute -bottom-2 right-2 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-pajoh-green/10">
+            <p class="text-[9px] uppercase tracking-[0.18em] text-pajoh-ink/40">Harga</p>
+            <p class="text-lg font-bold text-pajoh-green">${money(p.price)}</p>
+          </div>
+        </div>
+        <div class="mt-8 grid grid-cols-3 gap-2">
+          <div class="rounded-xl bg-white/70 p-3 text-center ring-1 ring-pajoh-green/10">
+            <p class="serif text-xl font-bold text-pajoh-green">★ ${p.rating || 4.8}</p>
+            <p class="text-[9px] uppercase tracking-[0.14em] text-pajoh-ink/40">Rating</p>
+          </div>
+          <div class="rounded-xl bg-white/70 p-3 text-center ring-1 ring-pajoh-green/10">
+            <p class="serif text-xl font-bold text-pajoh-green">${(p.spices || []).length}</p>
+            <p class="text-[9px] uppercase tracking-[0.14em] text-pajoh-ink/40">Rempah</p>
+          </div>
+          <div class="rounded-xl bg-white/70 p-3 text-center ring-1 ring-pajoh-green/10">
+            <p class="serif text-xl font-bold text-pajoh-green">${p.status === 'Pre-Order' ? 'H+1' : 'Fresh'}</p>
+            <p class="text-[9px] uppercase tracking-[0.14em] text-pajoh-ink/40">Penyajian</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="flex flex-wrap items-center gap-2">
+          ${statusBadge(p.status)}
+          <span class="rounded-full bg-pajoh-gold/[0.15] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#8A6A1F]">${esc(p.category)}</span>
+          ${p.featured ? '<span class="rounded-full bg-pajoh-green/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-pajoh-green">Unggulan</span>' : ''}
+        </div>
+        <p class="mt-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-pajoh-green/[0.55]">${esc(p.eyebrow)}</p>
+        <h1 class="serif mt-2 text-4xl font-bold leading-[0.95] text-pajoh-green sm:text-5xl">${esc(p.name)}</h1>
+        <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-pajoh-gold">${esc(p.subtitle)}</p>
+        <p class="mt-5 text-[14px] leading-relaxed text-pajoh-ink/70">${esc(p.desc)}</p>
+
+        <div class="mt-7 rounded-2xl border border-pajoh-green/10 bg-white/70 p-5">
+          <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-pajoh-green/50">Rempah &amp; Bahan Utama</p>
+          <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+            ${(p.spices || []).map(function (s) {
+              return '<li class="flex items-start gap-2 rounded-lg bg-white px-3 py-2 text-[12.5px] text-pajoh-ink/75 ring-1 ring-pajoh-green/5"><i data-lucide="leaf" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-pajoh-green/50"></i><span>' + esc(s) + '</span></li>';
+            }).join('')}
+          </ul>
+        </div>
+
+        <div class="mt-6 grid gap-3 sm:grid-cols-2">
+          <div class="rounded-2xl bg-pajoh-sand/70 p-5">
+            <div class="flex items-center gap-2 text-pajoh-green"><i data-lucide="utensils" class="h-4 w-4"></i><p class="text-[10px] font-bold uppercase tracking-[0.18em]">Saran Penyajian</p></div>
+            <p class="mt-2 text-[12.5px] leading-relaxed text-pajoh-ink/[0.65]">${esc(p.serving)}</p>
+          </div>
+          <div class="rounded-2xl bg-pajoh-green p-5 text-pajoh-ivory">
+            <div class="flex items-center gap-2 text-pajoh-gold"><i data-lucide="package" class="h-4 w-4"></i><p class="text-[10px] font-bold uppercase tracking-[0.18em]">Penyimpanan</p></div>
+            <p class="mt-2 text-[12.5px] leading-relaxed text-pajoh-ivory/70">Dikemas dalam wadah food grade tertutup. Untuk pengiriman kurir, kami menambahkan ice gel agar suhu tetap aman selama perjalanan.</p>
+          </div>
+        </div>
+
+        <div class="mt-7 flex flex-col gap-3 rounded-2xl border border-pajoh-green/10 bg-white p-4 shadow-soft sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-pajoh-green/50">Jumlah</span>
+            <div class="flex items-center rounded-full border border-pajoh-green/[0.15]">
+              <button onclick="detailQty(-1)" class="flex h-9 w-9 items-center justify-center text-pajoh-green transition hover:bg-pajoh-ivory" aria-label="Kurangi jumlah"><i data-lucide="minus" class="h-4 w-4"></i></button>
+              <input id="pd-qty" type="text" value="1" inputmode="numeric" readonly class="w-10 border-0 bg-transparent text-center text-sm font-bold text-pajoh-green outline-none" aria-label="Kuantitas" />
+              <button onclick="detailQty(1)" class="flex h-9 w-9 items-center justify-center text-pajoh-green transition hover:bg-pajoh-ivory" aria-label="Tambah jumlah"><i data-lucide="plus" class="h-4 w-4"></i></button>
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col gap-2 sm:flex-row sm:justify-end">
+            <button onclick="addDetailToCart('${p.id}')" ${soldOut ? 'disabled' : ''} class="btn btn-primary flex-1 sm:flex-none">
+              <i data-lucide="shopping-bag" class="h-4 w-4"></i> ${soldOut ? 'Stok Habis' : 'Tambah ke Keranjang'}
+            </button>
+            <a href="#/checkout" class="btn btn-outline">Checkout <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+        <p class="mt-2 flex items-center gap-1.5 text-[11px] text-pajoh-ink/[0.45]"><i data-lucide="truck" class="h-3.5 w-3.5"></i> Pengiriman area Banda Aceh • Pre-order H-1 untuk kue tradisional</p>
+
+        <div class="mt-10 border-t border-pajoh-green/10 pt-8">
+          <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-pajoh-gold">Kisah Hidangan</p>
+          <h2 class="serif mt-2 text-2xl font-semibold text-pajoh-green">Di balik sepiring ${esc(p.name)}</h2>
+          <p class="mt-3 text-[13.5px] leading-relaxed text-pajoh-ink/70">${esc(p.story || p.desc)}</p>
+          <a href="#/story" class="btn btn-ghost btn-sm mt-4 !px-0">Baca kisah kuliner lainnya <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 border-t border-pajoh-green/10 pt-10">
+      <div class="flex items-end justify-between">
+        <div>
+          ${sectionEyebrow('Lainnya')}
+          <h2 class="serif mt-2 text-3xl font-semibold text-pajoh-green">Mungkin Anda juga suka</h2>
+        </div>
+        <a href="#/menu" class="hidden text-[11px] font-bold uppercase tracking-[0.14em] text-pajoh-green/60 hover:text-pajoh-green sm:block">Semua menu</a>
+      </div>
+      <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">${related.map(productCard).join('')}</div>
+    </div>
+  </section>`;
+}
+
+function detailQty(delta) {
+  const input = document.getElementById('pd-qty');
+  if (!input) return;
+  const next = Math.min(20, Math.max(1, (parseInt(input.value, 10) || 1) + delta));
+  input.value = next;
+}
+
+function addDetailToCart(id) {
+  const input = document.getElementById('pd-qty');
+  addToCart(id, Math.max(1, parseInt(input ? input.value : '1', 10) || 1));
+}
+
+/* ============================ KISAH KULINER ============================ */
+
+const STORIES = [
+  {
+    id: 'sie-reuboh',
+    tag: 'Bab I • Lauk Warisan',
+    title: 'Sie Reuboh: bekal para pejuang, harum di meja hari ini',
+    image: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1100&q=80',
+    paragraphs: [
+      'Ada alasan mengapa Sie Reuboh dimasak begitu lama. Di masa perang, para pejuang Aceh membutuhkan bekal yang tidak mudah rusak selama berhari-hari di hutan. Daging segar tidak mungkin bertahan, tetapi daging yang dimasak dengan cuka aren dan rempah kering berubah menjadi sesuatu yang hampir abadi—semakin dipanaskan, semakin pekat rasanya.',
+      'Cuka aren menjadi kuncinya. Fermentasi nira aren menghasilkan asam yang tidak tajam, melainkan dalam dan sedikit manis. Bersama kunyit, lengkuas, dan cabai, cuka itu menembus serat daging dan mengawetkannya secara alami. Tidak ada cuka dapur biasa di resep ini.',
+      'Di dapur Pajôh, kami memasak Sie Reuboh empat jam dengan api kecil. Kuahnya dibiarkan menyusut sampai mengilap dan berwarna cokelat tua—tanda bahwa semua rasa sudah menyatu. Sepiring Sie Reuboh hari ini adalah sepiring ketabahan yang diwariskan.'
+    ],
+    quote: 'Bekal yang menemani perjalanan panjang tidak boleh hanya enak—ia harus bertahan, dan tetap terasa seperti rumah.',
+    productId: 'sie-reuboh',
+    cta: 'Pesan Sie Reuboh'
+  },
+  {
+    id: 'keumamah',
+    tag: 'Bab II • Dari Laut',
+    title: 'Keumamah: ikan kayu yang menyangga negeri',
+    image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1100&q=80',
+    paragraphs: [
+      'Keumamah lahir dari ketidakpastian laut. Ketika angin kencang membuat perahu tidak bisa melaut, nelayan Aceh harus menyiapkan persediaan. Ikan tongkol direbus, dibelah, lalu dijemur sampai mengeras—mirip kayu, karena itulah namanya. Di baliknya bukan kekurangan, melainkan kecerdasan: ikan yang tahan berbulan-bulan tanpa lemari pendingin.',
+      'Saat dimasak, keumamah tidak langsung dimasukkan ke wajan. Ia direbus dulu hingga kembali lembut, lalu ditiriskan dan ditumis dengan asam sunti, cabai hijau keriting, serai, dan daun jeruk. Hasilnya bukan ikan yang lumat, tetapi potongan yang kenyal dengan rasa asin-asam yang berlapis.',
+      'Kami mengeringkan tongkol sendiri di belakang dapur, memakai panas matahari Banda Aceh dan garam kasar. Prosesnya tiga hari, tergantung cuaca. Jika hujan turun, kami menunggu—karena keumamah yang terburu-buru akan berbau dan kehilangan teksturnya.'
+    ],
+    quote: 'Bagi nelayan, keumamah adalah tabungan: hasil laut hari ini, disimpan untuk hari yang tidak pasti.',
+    productId: 'keumamah-tumis',
+    cta: 'Cicipi Keumamah Tumis'
+  },
+  {
+    id: 'timphan',
+    tag: 'Bab III • Kue & Doa',
+    title: 'Timphan: kesabaran yang dibungkus daun pisang',
+    image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=1100&q=80',
+    paragraphs: [
+      'Timphan tidak pernah dibuat untuk dijual cepat. Di rumah-rumah Aceh, ia muncul menjelang Maulid dan Lebaran, disusun di atas talam bersama kue lain, dibagikan kepada tetangga. Membuatnya butuh dua orang: satu menguleni ketan, satu lagi memasak srikaya sampai kental dan mengilap.',
+      'Filosofinya sederhana: adonan yang lembut tidak mungkin dibentuk tergesa-gesa, dan srikaya yang enak tidak mungkin dimasak dengan api besar. Semua harus perlahan. Daun pisang yang membungkusnya pun dilayukan dulu di atas api agar tidak pecah saat dikukus—detail kecil yang menentukan.',
+      'Di Pajôh, timphan dibuat dengan pre-order karena kami ingin ia sampai ke tangan Anda dalam kondisi terbaik: hangat, lembut, dan masih beraroma daun pisang. Kue ini mengajarkan satu hal yang jarang kita lakukan hari ini—menunggu.'
+    ],
+    quote: 'Kue yang baik tidak bisa dipercepat. Ia hanya bisa dibuat dengan sabar, lalu dinikmati dengan tenang.',
+    productId: 'timphan-srikaya',
+    cta: 'Pre-Order Timphan'
+  },
+  {
+    id: 'asam-sunti',
+    tag: 'Bab IV • Rempah',
+    title: 'Asam sunti: rahasia asam yang tidak pernah hilang',
+    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1100&q=80',
+    paragraphs: [
+      'Asam sunti adalah belimbing wuluh yang dikeringkan dengan garam, lalu dijemur hingga berwarna cokelat kehitaman. Bentuknya kecil dan tidak menarik, tetapi hampir tidak ada masakan Aceh yang lengkap tanpanya: kuah pliek u, keumamah, kari, hingga tumis sayur.',
+      'Rasa asamnya berbeda dari cuka atau jeruk nipis. Ia lebih dalam, sedikit asin, dengan aroma khas yang menempel di hidung. Karena kandungan airnya sudah hilang, asam sunti bisa disimpan berbulan-bulan dalam toples—cara nenek kami memastikan dapur selalu punya rasa asam, bahkan di musim yang tidak bersahabat.',
+      'Kami membeli asam sunti dari petani di Aceh Besar yang masih menjemurnya di atas anyaman bambu, bukan di oven. Perbedaan kecil itu terasa di akhir masakan: asam yang bulat, tidak menusuk, dan membuat orang menambah nasi tanpa sadar.'
+    ],
+    quote: 'Rempah terbaik sering kali yang paling sederhana—dijemur matahari, disimpan di toples, dan dipakai sepanjang tahun.',
+    productId: 'bumbu-kari-aceh',
+    cta: 'Coba Bumbu Kari Aceh'
+  }
+];
+
+function storyPage() {
+  return `
+  <section class="relative overflow-hidden bg-pajoh-green text-pajoh-ivory">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.16]">
+      <svg class="h-full w-full" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,120 C320,260 720,20 1120,180 C1280,244 1380,120 1440,160" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+        <path d="M0,400 C360,260 760,520 1100,360 C1260,290 1360,380 1440,340" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+        <circle cx="1120" cy="380" r="170" fill="none" stroke="#D4AF37" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="relative mx-auto grid max-w-[1400px] items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-10 lg:py-20">
+      <div>
+        <div class="flex items-center gap-3"><span class="h-px w-8 bg-pajoh-gold"></span><span class="text-[10px] font-bold uppercase tracking-[0.32em] text-pajoh-gold">Culinary Story</span></div>
+        <h1 class="serif mt-5 text-4xl font-semibold leading-[1.02] sm:text-6xl">Kisah dari<br /><span class="italic text-pajoh-gold">dapur indatu.</span></h1>
+        <p class="mt-5 max-w-lg text-[13.5px] leading-relaxed text-pajoh-ivory/[0.65]">Empat catatan tentang rempah, laut, dan kesabaran—tentang bagaimana masakan Aceh bertahan melewati waktu, dan mengapa kami memilih memasukkannya dengan cara yang sama seperti dulu.</p>
+        <div class="mt-7 flex flex-wrap gap-2">
+          ${STORIES.map(function (s, i) {
+            return '<a href="#/story?s=' + s.id + '" class="rounded-full border border-white/20 px-4 py-2 text-[11px] font-semibold text-pajoh-ivory/70 transition hover:border-pajoh-gold hover:text-pajoh-gold">0' + (i + 1) + ' • ' + s.id.replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); }) + '</a>';
+          }).join('')}
+        </div>
+      </div>
+      <div class="relative">
+        <div class="overflow-hidden rounded-[2rem] shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Meja makan dengan hidangan Aceh" loading="lazy" class="h-[300px] w-full object-cover sm:h-[400px]" onerror="imgFallback(this)" />
+        </div>
+        <div class="absolute -bottom-4 left-6 rounded-xl bg-pajoh-ivory px-5 py-3 text-pajoh-green shadow-xl">
+          <p class="text-[9px] uppercase tracking-[0.2em] text-pajoh-gold">Edisi Kehormatan</p>
+          <p class="serif text-lg font-semibold leading-tight">Warisan Rasa Aceh</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-4 pb-16 sm:px-6 lg:px-10">
+    <div class="py-8">
+      ${STORIES.map(storyArticle).join('')}
+    </div>
+
+    <div class="mt-6 rounded-[2rem] bg-pajoh-sand/70 p-8 text-center sm:p-12">
+      <div class="aceh-band mx-auto mb-6 max-w-[180px]"></div>
+      <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-pajoh-gold">Rasakan Kisahnya</p>
+      <h2 class="serif mx-auto mt-3 max-w-2xl text-3xl font-semibold leading-tight text-pajoh-green sm:text-4xl">Setiap hidangan punya cerita. Sekarang giliran Anda mencicipinya.</h2>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href="#/menu" class="btn btn-primary">Lihat Semua Menu <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+        <a href="#/about" class="btn btn-outline">Tentang Dapur Kami</a>
+      </div>
+    </div>
+  </section>`;
+}
+
+function storyArticle(a, index) {
+  const reversed = index % 2 === 1;
+  return `
+  <article id="story-${a.id}" class="scroll-mt-32 grid gap-8 border-t border-pajoh-green/10 py-12 lg:grid-cols-12 lg:items-center lg:gap-14 lg:py-16">
+    <div class="lg:col-span-5 ${reversed ? 'lg:order-2' : ''}">
+      <div class="relative">
+        <div class="aspect-square overflow-hidden rounded-[2rem] shadow-soft">
+          <img src="${a.image}" alt="${esc(a.title)}" loading="lazy" class="h-full w-full object-cover transition duration-700 hover:scale-105" onerror="imgFallback(this)" />
+        </div>
+        <span class="absolute -bottom-3 ${reversed ? 'right-6' : 'left-6'} rounded-full bg-pajoh-green px-4 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-pajoh-gold shadow-lg">${esc(a.tag)}</span>
+      </div>
+    </div>
+    <div class="lg:col-span-7 ${reversed ? 'lg:order-1' : ''}">
+      <h2 class="serif text-3xl font-semibold leading-tight text-pajoh-green sm:text-[34px]">${esc(a.title)}</h2>
+      <div class="mt-4 space-y-3 text-[13.5px] leading-relaxed text-pajoh-ink/70">
+        ${a.paragraphs.map(function (t, i) {
+          return '<p class="' + (i === 0 ? 'drop-cap' : '') + '">' + esc(t) + '</p>';
+        }).join('')}
+      </div>
+      ${a.quote ? '<blockquote class="serif mt-6 border-l-2 border-pajoh-gold pl-5 text-xl italic leading-snug text-pajoh-green/80">“' + esc(a.quote) + '”</blockquote>' : ''}
+      ${a.productId ? '<a href="#/product/' + a.productId + '" class="btn btn-outline mt-6">' + esc(a.cta) + ' <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>' : ''}
+    </div>
+  </article>`;
+}
+
+/* ============================ TENTANG KAMI ============================ */
+
+function aboutPage() {
+  return `
+  <section class="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10 lg:pt-14">
+    <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+      <div class="lg:col-span-6">
+        ${sectionEyebrow('Tentang Kami')}
+        <h1 class="serif mt-4 text-4xl font-semibold leading-[1.02] text-pajoh-green sm:text-6xl">Pajôh berarti<br /><span class="italic text-pajoh-gold">makan.</span></h1>
+        <p class="mt-5 text-[14px] leading-relaxed text-pajoh-ink/70">Sesederhana itu namanya. Dalam bahasa Aceh, <em>pajôh</em> adalah kata yang diucapkan ibu ketika mangkuk sudah di atas meja—bukan panggilan, melainkan ajakan: mari makan, sebelum dingin.</p>
+        <p class="mt-3 text-[14px] leading-relaxed text-pajoh-ink/70">Kami memilih kata itu karena kami tidak ingin menjadi restoran yang rumit. Kami ingin menjadi dapur yang mengingatkan Anda pada rumah: rempahnya jelas, porsinya jujur, dan tidak ada bahan yang tidak bisa Anda sebutkan namanya.</p>
+        <div class="mt-7 grid grid-cols-3 gap-3">
+          <div class="rounded-xl bg-white/70 p-4 text-center ring-1 ring-pajoh-green/10">
+            <p class="serif text-2xl font-bold text-pajoh-green">2016</p>
+            <p class="text-[9px] uppercase tracking-[0.14em] text-pajoh-ink/40">Berdiri</p>
+          </div>
+          <div class="rounded-xl bg-white/70 p-4 text-center ring-1 ring-pajoh-green/10">
+            <p class="serif text-2xl font-bold text-pajoh-green">24</p>
+            <p class="text-[9px] uppercase tracking-[0.14em] text-pajoh-ink/40">Resep Indatu</p>
+          </div>
+          <div class="rounded-xl bg-white/70 p-4 text-center ring-1 ring-pajoh-green/10">
+            <p class="serif text-2xl font-bold text-pajoh-green">12rb+</p>
+            <p class="text-[9px] uppercase tracking-[0.14em] text-pajoh-ink/40">Porsi Tersaji</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-6">
+        <div class="relative">
+          <div class="overflow-hidden rounded-[2rem] shadow-soft">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80" alt="Dapur Pajôh di Peunayong, Banda Aceh" loading="lazy" class="h-[360px] w-full object-cover sm:h-[460px]" onerror="imgFallback(this)" />
+          </div>
+          <div class="absolute -bottom-5 -left-2 max-w-[220px] rounded-2xl bg-pajoh-green p-5 text-pajoh-ivory shadow-xl sm:left-6">
+            <i data-lucide="map-pin" class="h-4 w-4 text-pajoh-gold"></i>
+            <p class="serif mt-2 text-lg font-semibold leading-tight">Peunayong,<br />Banda Aceh</p>
+            <p class="mt-1 text-[10px] uppercase tracking-[0.16em] text-pajoh-ivory/50">Dapur &amp; titik ambil</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1400px] px-4 py-16 sm:px-6 lg:px-10 lg:py-20">
+    <div class="grid gap-4 sm:grid-cols-3">
+      ${[
+        { icon: 'scroll-text', title: 'Resep yang tidak diubah', text: 'Takaran kami ikut catatan keluarga, bukan tren. Bila resep membutuhkan empat jam, kami memasak empat jam.' },
+        { icon: 'sprout', title: 'Rempah dari tetangga', text: 'Asam sunti, temurui, dan cuka aren dibeli langsung dari petani dan pembuat di Aceh Besar dan Pidie.' },
+        { icon: 'flame', title: 'Dimasak per pesanan', text: 'Tidak ada lauk yang dipanaskan berkali-kali. Pesanan Anda masuk dapur, lalu keluar dalam keadaan terbaik.' }
+      ].map(function (v, i) {
+        return '<div class="fade-up rounded-2xl border border-pajoh-green/10 bg-white p-6" style="animation-delay:' + (i * 80) + 'ms">' +
+          '<span class="flex h-11 w-11 items-center justify-center rounded-full bg-pajoh-gold/[0.15] text-[#8A6A1F]"><i data-lucide="' + v.icon + '" class="h-5 w-5"></i></span>' +
+          '<h3 class="serif mt-4 text-xl font-semibold text-pajoh-green">' + v.title + '</h3>' +
+          '<p class="mt-1.5 text-[13px] leading-relaxed text-pajoh-ink/60">' + v.text + '</p></div>';
+      }).join('')}
+    </div>
+  </section>
+
+  <section class="bg-pajoh-sand/60">
+    <div class="aceh-band"></div>
+    <div class="mx-auto grid max-w-[1400px] gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-10 lg:py-20">
+      <div>
+        ${sectionEyebrow('Standar Dapur')}
+        <h2 class="serif mt-3 text-3xl font-semibold leading-tight text-pajoh-green sm:text-4xl">Bersih bukan nilai tambah.<br />Itu syarat pertama.</h2>
+        <p class="mt-4 text-[13.5px] leading-relaxed text-pajoh-ink/[0.65]">Dapur kami di Peunayong buka setiap pagi pukul enam. Sebelum apa pun dimasak, rempah dicuci, talenan dipisah, dan suhu kulkas dicatat. Kami kecil, jadi kami bisa memastikan setiap prosesnya.</p>
+        <ul class="mt-6 space-y-3">
+          ${[
+            'Bahan segar dibeli setiap dua hari, tidak menumpuk stok.',
+            'Talenan daging dan sayur dipisah, sterilisasi harian.',
+            'Kemasan food grade dengan segel dan label tanggal masak.',
+            'Pengiriman memakai ice gel untuk lauk berkuah.'
+          ].map(function (t) {
+            return '<li class="flex items-start gap-2.5 text-[13px] text-pajoh-ink/70"><span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-pajoh-green/10 text-pajoh-green"><i data-lucide="check" class="h-3 w-3"></i></span>' + t + '</li>';
+          }).join('')}
+        </ul>
+      </div>
+      <div class="relative flex items-center">
+        <div class="rounded-[2rem] bg-pajoh-forest p-8 text-pajoh-ivory sm:p-10">
+          <i data-lucide="quote" class="h-7 w-7 text-pajoh-gold/70"></i>
+          <p class="serif mt-4 text-2xl font-light italic leading-snug sm:text-3xl">“Kami tidak ingin dikenal sebagai yang paling ramai. Kami ingin dikenal sebagai dapur yang resepnya tidak pernah berubah karena tergesa-gesa.”</p>
+          <p class="mt-6 text-[10px] font-semibold uppercase tracking-[0.28em] text-pajoh-gold">Tim Dapur Pajôh</p>
+          <a href="#/contact" class="btn btn-gold mt-7">Hubungi Kami <i data-lucide="message-circle" class="h-4 w-4"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+/* ============================ KERANJANG ============================ */
+
+function emptyStateHtml(icon, title, text, ctaHref, ctaLabel) {
+  return `<div class="rounded-[2rem] border border-dashed border-pajoh-green/20 bg-white/60 px-6 py-16 text-center">
+    <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-pajoh-green/[0.08] text-pajoh-green/50"><i data-lucide="${icon}" class="h-7 w-7"></i></span>
+    <p class="serif mt-4 text-3xl text-pajoh-green">${title}</p>
+    <p class="mx-auto mt-2 max-w-md text-[13px] leading-relaxed text-pajoh-ink/[0.55]">${text}</p>
+    <a href="${ctaHref}" class="btn btn-primary mt-6">${ctaLabel} <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+  </div>`;
+}
+
+function cartPage() {
+  const items = cartEntries();
+  if (!items.length) {
+    return `<section class="mx-auto max-w-[900px] px-4 py-16 sm:px-6 lg:py-24">
+      ${emptyStateHtml('shopping-bag', 'Keranjang masih kosong', 'Belum ada hidangan yang dipilih. Mulai dari Sie Reuboh yang legendaris, atau sambal ganja yang bikin nambah.', '#/menu', 'Jelajahi Menu')}
+    </section>`;
+  }
+
+  const subtotal = cartSubtotal();
+  return `
+  <section class="mx-auto max-w-[1400px] px-4 pb-16 pt-10 sm:px-6 lg:px-10 lg:pt-14">
+    <div class="flex items-end justify-between">
+      <div>
+        ${sectionEyebrow('Keranjang')}
+        <h1 class="serif mt-3 text-4xl font-semibold text-pajoh-green sm:text-5xl">Pesanan Anda</h1>
+      </div>
+      <a href="#/menu" class="hidden text-[11px] font-bold uppercase tracking-[0.14em] text-pajoh-green/60 underline underline-offset-4 hover:text-pajoh-green sm:block">Tambah hidangan</a>
+    </div>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-12">
+      <div class="space-y-3 lg:col-span-8">
+        ${items.map(cartRow).join('')}
+        <a href="#/menu" class="btn btn-ghost btn-sm mt-2 !px-0 text-pajoh-green/70"><i data-lucide="arrow-left" class="h-3.5 w-3.5"></i> Lanjut pilih hidangan</a>
+      </div>
+
+      <aside class="lg:col-span-4">
+        <div class="rounded-2xl border border-pajoh-green/10 bg-white p-6 shadow-soft lg:sticky lg:top-32">
+          <h2 class="serif text-2xl font-semibold text-pajoh-green">Ringkasan</h2>
+          <div class="mt-4 space-y-2 text-[13px]">
+            <div class="flex justify-between text-pajoh-ink/[0.65]"><span>Subtotal (${cartCount()} item)</span><span class="font-semibold text-pajoh-ink/80">${money(subtotal)}</span></div>
+            <div class="flex justify-between text-pajoh-ink/[0.65]"><span>Pengiriman</span><span class="font-semibold text-pajoh-green">Gratis*</span></div>
+            <div class="flex justify-between text-pajoh-ink/[0.65]"><span>Biaya penanganan</span><span class="font-semibold text-pajoh-green">Rp 0</span></div>
+          </div>
+          <div class="mt-4 flex items-center justify-between border-t border-dashed border-pajoh-green/[0.15] pt-4">
+            <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-pajoh-green/50">Total</span>
+            <span class="serif text-2xl font-bold text-pajoh-green">${money(subtotal)}</span>
+          </div>
+          <a href="#/checkout" class="btn btn-primary mt-5 w-full">Lanjut ke Checkout <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          <p class="mt-3 text-[10.5px] leading-relaxed text-pajoh-ink/[0.45]">*Gratis pengiriman area Banda Aceh untuk pesanan di atas Rp 250.000. Pesanan dikonfirmasi melalui WhatsApp.</p>
+          <div class="mt-4 flex items-center gap-2 rounded-xl bg-pajoh-sand/70 p-3 text-[10.5px] text-pajoh-ink/[0.55]">
+            <i data-lucide="shield-check" class="h-4 w-4 shrink-0 text-pajoh-green/60"></i>
+            <span>Tanpa pembayaran di muka. Konfirmasi dan pembayaran diatur langsung dengan dapur.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>`;
+}
+
+function cartRow(entry) {
+  const p = entry.p;
+  const line = entry.q * Number(p.price || 0);
+  return `
+  <div class="flex gap-3 rounded-2xl border border-pajoh-green/10 bg-white p-3 sm:gap-4 sm:p-4">
+    <a href="#/product/${encodeURIComponent(p.id)}" class="h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-pajoh-sand sm:h-24 sm:w-24">
+      ${imgTag(p, 'h-full w-full object-cover')}
+    </a>
+    <div class="flex min-w-0 flex-1 flex-col justify-between">
+      <div class="flex items-start justify-between gap-2">
+        <div class="min-w-0">
+          <p class="text-[9px] font-bold uppercase tracking-[0.18em] text-pajoh-gold">${esc(p.category)}</p>
+          <a href="#/product/${encodeURIComponent(p.id)}" class="serif block truncate text-lg font-semibold leading-tight text-pajoh-green hover:text-pajoh-gold sm:text-xl">${esc(p.name)}</a>
+          <p class="mt-0.5 truncate text-[11px] text-pajoh-ink/[0.45]">${esc(p.subtitle)} • ${money(p.price)}</p>
+        </div>
+        <button onclick="removeFromCart('${p.id}')" class="shrink-0 rounded-lg p-1.5 text-pajoh-ink/30 transition hover:bg-red-50 hover:text-red-500" aria-label="Hapus ${esc(p.name)}"><i data-lucide="trash-2" class="h-4 w-4"></i></button>
+      </div>
+      <div class="mt-2 flex items-end justify-between gap-2">
+        <div class="flex items-center rounded-full border border-pajoh-green/[0.15]">
+          <button onclick="changeQty('${p.id}', -1)" class="flex h-8 w-8 items-center justify-center text-pajoh-green transition hover:bg-pajoh-ivory" aria-label="Kurangi"><i data-lucide="minus" class="h-3.5 w-3.5"></i></button>
+          <span class="w-8 text-center text-[13px] font-bold text-pajoh-green">${entry.q}</span>
+          <button onclick="changeQty('${p.id}', 1)" class="flex h-8 w-8 items-center justify-center text-pajoh-green transition hover:bg-pajoh-ivory" aria-label="Tambah"><i data-lucide="plus" class="h-3.5 w-3.5"></i></button>
+        </div>
+        <p class="text-[14px] font-bold text-pajoh-green">${money(line)}</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ============================ CHECKOUT ============================ */
+
+function checkoutPage() {
+  if (ui.lastOrder) return orderSuccessPage();
+
+  const items = cartEntries();
+  if (!items.length) {
+    return `<section class="mx-auto max-w-[900px] px-4 py-16 sm:px-6 lg:py-24">
+      ${emptyStateHtml('clipboard-list', 'Belum ada pesanan', 'Keranjang Anda kosong, jadi checkout belum bisa dilanjutkan. Pilih hidangan terlebih dahulu, lalu kembali ke halaman ini.', '#/menu', 'Pilih Hidangan')}
+    </section>`;
+  }
+
+  const subtotal = cartSubtotal();
+  return `
+  <section class="mx-auto max-w-[1400px] px-4 pb-16 pt-10 sm:px-6 lg:px-10 lg:pt-14">
+    <div class="flex items-center gap-2 text-[11px] text-pajoh-green/[0.45]">
+      <a href="#/cart" class="transition hover:text-pajoh-green">Keranjang</a>
+      <i data-lucide="chevron-right" class="h-3 w-3"></i>
+      <span class="text-pajoh-green/75">Checkout</span>
+    </div>
+    <div class="mt-4">
+      ${sectionEyebrow('Langkah Terakhir')}
+      <h1 class="serif mt-3 text-4xl font-semibold text-pajoh-green sm:text-5xl">Checkout</h1>
+      <p class="mt-3 max-w-xl text-[13.5px] leading-relaxed text-pajoh-ink/60">Isi data pengiriman. Setelah tombol ditekan, pesanan Anda akan terbuka di WhatsApp dalam format struk yang rapi—tinggal kirim untuk konfirmasi.</p>
+    </div>
+
+    <form onsubmit="handleCheckout(event)" novalidate class="mt-8 grid gap-6 lg:grid-cols-12">
+      <div class="space-y-4 lg:col-span-7">
+        <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5 sm:p-6">
+          <div class="flex items-center gap-2">
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-pajoh-green text-[11px] font-bold text-white">1</span>
+            <h2 class="serif text-xl font-semibold text-pajoh-green">Data Pemesan</h2>
+          </div>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="label" for="co-name">Nama Pelanggan *</label>
+              <input id="co-name" type="text" class="input" placeholder="Nama lengkap" autocomplete="name" />
+              <p class="err-msg" id="err-name">Nama minimal 3 karakter.</p>
+            </div>
+            <div>
+              <label class="label" for="co-phone">No. HP / WhatsApp *</label>
+              <input id="co-phone" type="tel" class="input" placeholder="08xx xxxx xxxx" autocomplete="tel" />
+              <p class="err-msg" id="err-phone">Masukkan nomor aktif, contoh 0812xxxxxxx.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5 sm:p-6">
+          <div class="flex items-center gap-2">
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-pajoh-green text-[11px] font-bold text-white">2</span>
+            <h2 class="serif text-xl font-semibold text-pajoh-green">Metode Pesanan</h2>
+          </div>
+
+          <div class="mt-4 grid gap-3 sm:grid-cols-2">
+            <label data-method-card="kurir" class="cursor-pointer rounded-xl border-2 border-pajoh-gold bg-pajoh-ivory p-4 transition">
+              <input type="radio" name="co-method" value="kurir" class="sr-only" checked onchange="setMethod('kurir')" />
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2 text-[13px] font-bold text-pajoh-green"><i data-lucide="truck" class="h-4 w-4"></i> Pengiriman Kurir</span>
+                <i data-lucide="check-circle-2" class="h-4 w-4 text-pajoh-green"></i>
+              </div>
+              <p class="mt-1.5 text-[11.5px] leading-relaxed text-pajoh-ink/[0.55]">Diantar ke alamat Anda di area Banda Aceh.</p>
+            </label>
+            <label data-method-card="pickup" class="cursor-pointer rounded-xl border-2 border-pajoh-green/[0.12] bg-white p-4 transition">
+              <input type="radio" name="co-method" value="pickup" class="sr-only" onchange="setMethod('pickup')" />
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2 text-[13px] font-bold text-pajoh-green"><i data-lucide="store" class="h-4 w-4"></i> Ambil Langsung</span>
+                <i data-lucide="circle" class="h-4 w-4 text-pajoh-green/25"></i>
+              </div>
+              <p class="mt-1.5 text-[11.5px] leading-relaxed text-pajoh-ink/[0.55]">Self-pickup di dapur Peunayong.</p>
+            </label>
+          </div>
+
+          <div id="co-address-wrap" class="mt-4">
+            <label class="label" for="co-address">Alamat Lengkap *</label>
+            <textarea id="co-address" rows="3" class="textarea" placeholder="Nama jalan, nomor rumah, kelurahan, kecamatan, patokan…"></textarea>
+            <p class="err-msg" id="err-address">Alamat minimal 10 karakter agar kurir tidak tersesat.</p>
+          </div>
+
+          <div id="pickup-info" class="mt-4 hidden rounded-xl bg-pajoh-sand/80 p-4">
+            <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-pajoh-green/60">Alamat Pengambilan</p>
+            <p class="mt-1.5 text-[13px] font-semibold text-pajoh-green">${esc(state.settings.address)}</p>
+            <p class="mt-1 text-[11.5px] text-pajoh-ink/[0.55]">${esc(state.settings.hours)} • Cari papan kayu bertuliskan Pajôh.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5 sm:p-6">
+          <div class="flex items-center gap-2">
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-pajoh-green text-[11px] font-bold text-white">3</span>
+            <h2 class="serif text-xl font-semibold text-pajoh-green">Catatan Pesanan</h2>
+          </div>
+          <label class="label mt-4" for="co-note">Opsional</label>
+          <textarea id="co-note" rows="3" class="textarea" placeholder="Contoh: tanpa cabai, kirim sore setelah pukul 16.00, tambahkan 2 sendok sambal…"></textarea>
+          <p class="mt-2 text-[11px] text-pajoh-ink/40">Permintaan khusus akan dikonfirmasi dapur melalui WhatsApp.</p>
+        </div>
+      </div>
+
+      <aside class="lg:col-span-5">
+        <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5 shadow-soft lg:sticky lg:top-32 sm:p-6">
+          <h2 class="serif text-xl font-semibold text-pajoh-green">Ringkasan Belanja</h2>
+          <div class="mt-4 max-h-[280px] space-y-3 overflow-y-auto pr-1">
+            ${items.map(function (e) {
+              return '<div class="flex items-start gap-3">' +
+                '<div class="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-pajoh-sand">' + imgTag(e.p, 'h-full w-full object-cover') + '</div>' +
+                '<div class="min-w-0 flex-1"><p class="truncate text-[12.5px] font-semibold text-pajoh-green">' + esc(e.p.name) + '</p>' +
+                '<p class="text-[10.5px] text-pajoh-ink/[0.45]">' + e.q + ' x ' + money(e.p.price) + '</p></div>' +
+                '<p class="text-[12px] font-bold text-pajoh-green">' + money(e.q * e.p.price) + '</p></div>';
+            }).join('')}
+          </div>
+          <div class="mt-4 space-y-2 border-t border-dashed border-pajoh-green/[0.15] pt-4 text-[13px]">
+            <div class="flex justify-between text-pajoh-ink/[0.65]"><span>Subtotal</span><span class="font-semibold">${money(subtotal)}</span></div>
+            <div class="flex justify-between text-pajoh-ink/[0.65]"><span>Pengiriman</span><span class="font-semibold text-pajoh-green">Gratis*</span></div>
+            <div class="flex justify-between text-pajoh-ink/[0.65]"><span>Biaya penanganan</span><span class="font-semibold text-pajoh-green">Rp 0</span></div>
+          </div>
+          <div class="mt-4 flex items-center justify-between border-t border-pajoh-green/[0.15] pt-4">
+            <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-pajoh-green/50">Total Bayar</span>
+            <span class="serif text-2xl font-bold text-pajoh-green">${money(subtotal)}</span>
+          </div>
+          <button type="submit" class="btn btn-primary mt-5 w-full">
+            <i data-lucide="message-circle" class="h-4 w-4"></i> Pesan via WhatsApp
+          </button>
+          <p class="mt-3 text-center text-[10.5px] leading-relaxed text-pajoh-ink/[0.45]">Pesanan akan dikirim ke dapur melalui WhatsApp. Pembayaran dilakukan setelah konfirmasi.</p>
+        </div>
+      </aside>
+    </form>
+  </section>`;
+}
+
+function setMethod(method) {
+  ui.method = method;
+  const addressWrap = document.getElementById('co-address-wrap');
+  if (addressWrap) addressWrap.classList.toggle('hidden', method !== 'kurir');
+  const pickup = document.getElementById('pickup-info');
+  if (pickup) pickup.classList.toggle('hidden', method !== 'pickup');
+  document.querySelectorAll('[data-method-card]').forEach(function (el) {
+    const active = el.getAttribute('data-method-card') === method;
+    el.classList.toggle('border-pajoh-gold', active);
+    el.classList.toggle('bg-pajoh-ivory', active);
+    el.classList.toggle('border-pajoh-green/[0.12]', !active);
+    el.classList.toggle('bg-white', !active);
+    const icon = el.querySelectorAll('svg');
+    if (icon.length) {
+      icon[icon.length - 1].style.color = active ? '#064E3B' : 'rgba(6,78,59,0.25)';
+    }
+  });
+}
+
+function setError(id, message) {
+  const input = document.getElementById(id);
+  const err = document.getElementById('err-' + id.replace('co-', ''));
+  if (message) {
+    if (input) input.classList.add('is-err');
+    if (err) { err.textContent = message; err.classList.add('show'); }
+  } else {
+    if (input) input.classList.remove('is-err');
+    if (err) err.classList.remove('show');
+  }
+}
+
+function buildWaMessage(order) {
+  const lines = [];
+  lines.push('*PESANAN BARU — PAJÔH*');
+  lines.push('_Authentic Taste, Heritage of Aceh_');
+  lines.push('');
+  lines.push('*Data Pemesan*');
+  lines.push('Nama: ' + order.name);
+  lines.push('No. HP: ' + order.phone);
+  lines.push('Metode: ' + (order.method === 'pickup' ? 'Ambil Langsung (Self-Pickup)' : 'Pengiriman Kurir'));
+  if (order.method === 'pickup') {
+    lines.push('Lokasi ambil: ' + state.settings.address);
+  } else {
+    lines.push('Alamat: ' + order.address);
+  }
+  lines.push('');
+  lines.push('*Rincian Pesanan*');
+  order.items.forEach(function (it, i) {
+    lines.push((i + 1) + '. ' + it.p.name);
+    if (it.p.subtitle) lines.push('   ' + it.p.subtitle);
+    lines.push('   ' + it.q + ' x ' + money(it.p.price) + ' = ' + money(it.q * it.p.price));
+  });
+  lines.push('');
+  lines.push('Subtotal: ' + money(order.subtotal));
+  lines.push('Pengiriman: Gratis');
+  lines.push('*Total: ' + money(order.total) + '*');
+  if (order.note) {
+    lines.push('');
+    lines.push('Catatan: ' + order.note);
+  }
+  lines.push('');
+  lines.push('Mohon konfirmasi ketersediaan dan jadwal ' + (order.method === 'pickup' ? 'pengambilan' : 'pengiriman') + '. Terima kasih banyak 🙏');
+  return lines.join('\n');
+}
+
+function handleCheckout(event) {
+  event.preventDefault();
+
+  const nameEl = document.getElementById('co-name');
+  const phoneEl = document.getElementById('co-phone');
+  const addressEl = document.getElementById('co-address');
+  const noteEl = document.getElementById('co-note');
+  const methodEl = document.querySelector('input[name="co-method"]:checked');
+
+  const name = (nameEl ? nameEl.value : '').trim();
+  const phoneRaw = (phoneEl ? phoneEl.value : '').trim();
+  const phone = phoneRaw.replace(/[^0-9]/g, '');
+  const method = methodEl ? methodEl.value : 'kurir';
+  const address = (addressEl ? addressEl.value : '').trim();
+  const note = (noteEl ? noteEl.value : '').trim();
+
+  setError('co-name', '');
+  setError('co-phone', '');
+  setError('co-address', '');
+
+  let firstInvalid = null;
+  if (name.length < 3) {
+    setError('co-name', 'Nama minimal 3 karakter.');
+    firstInvalid = firstInvalid || nameEl;
+  }
+  if (!/^(0|62)[0-9]{8,13}$/.test(phone)) {
+    setError('co-phone', 'Nomor tidak valid. Gunakan format 08xx atau 62xx, 10–15 digit.');
+    firstInvalid = firstInvalid || phoneEl;
+  }
+  if (method === 'kurir' && address.length < 10) {
+    setError('co-address', 'Alamat minimal 10 karakter agar kurir tidak tersesat.');
+    firstInvalid = firstInvalid || addressEl;
+  }
+  if (firstInvalid) {
+    firstInvalid.focus();
+    toast('Mohon lengkapi data yang ditandai merah.', 'error');
+    return;
+  }
+
+  const items = cartEntries();
+  if (!items.length) {
+    toast('Keranjang kosong.', 'error');
+    render();
+    return;
+  }
+
+  const subtotal = cartSubtotal();
+  const order = {
+    name: name,
+    phone: phoneRaw,
+    method: method,
+    address: method === 'kurir' ? address : state.settings.address,
+    note: note,
+    items: items.map(function (e) {
+      return { p: { id: e.p.id, name: e.p.name, subtitle: e.p.subtitle, price: e.p.price, image: e.p.image }, q: e.q };
+    }),
+    subtotal: subtotal,
+    total: subtotal,
+    createdAt: new Date()
+  };
+  order.message = buildWaMessage(order);
+  order.url = 'https://wa.me/' + String(state.settings.wa).replace(/\D/g, '') + '?text=' + encodeURIComponent(order.message);
+
+  ui.lastOrder = order;
+  state.cart = {};
+  saveState();
+  updateCartCount();
+
+  window.open(order.url, '_blank', 'noopener');
+  render();
+  toast('Pesanan diteruskan ke WhatsApp. Tinggal kirim, ya!');
+}
+
+function orderSuccessPage() {
+  const o = ui.lastOrder;
+  const dateText = o.createdAt.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+  return `
+  <section class="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-20">
+    <div class="fade-up rounded-[2rem] border border-pajoh-green/10 bg-white p-6 shadow-soft sm:p-10">
+      <div class="text-center">
+        <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-pajoh-green/10 text-pajoh-green"><i data-lucide="party-popper" class="h-7 w-7"></i></span>
+        <p class="mt-4 text-[10px] font-bold uppercase tracking-[0.3em] text-pajoh-gold">Terima kasih, ${esc(o.name.split(' ')[0])}</p>
+        <h1 class="serif mt-2 text-3xl font-semibold text-pajoh-green sm:text-4xl">Pesanan siap dikirim</h1>
+        <p class="mx-auto mt-3 max-w-md text-[13px] leading-relaxed text-pajoh-ink/60">Tab WhatsApp seharusnya sudah terbuka dengan struk pesanan Anda. Bila tidak terbuka otomatis, gunakan tombol di bawah ini.</p>
+      </div>
+
+      <div class="mt-7 rounded-2xl bg-pajoh-ivory p-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-dashed border-pajoh-green/[0.15] pb-3">
+          <p class="serif text-lg font-semibold text-pajoh-green">Struk Pesanan</p>
+          <p class="text-[10.5px] uppercase tracking-[0.16em] text-pajoh-ink/40">${esc(dateText)}</p>
+        </div>
+        <div class="mt-3 space-y-2 text-[12.5px]">
+          ${o.items.map(function (it) {
+            return '<div class="flex justify-between gap-3"><span class="text-pajoh-ink/70">' + esc(it.p.name) + ' <span class="text-pajoh-ink/40">× ' + it.q + '</span></span><span class="shrink-0 font-semibold text-pajoh-green">' + money(it.q * it.p.price) + '</span></div>';
+          }).join('')}
+        </div>
+        <div class="mt-3 flex items-center justify-between border-t border-pajoh-green/[0.15] pt-3">
+          <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-pajoh-green/50">Total</span>
+          <span class="serif text-xl font-bold text-pajoh-green">${money(o.total)}</span>
+        </div>
+        <div class="mt-3 grid gap-1 text-[11.5px] text-pajoh-ink/[0.55]">
+          <p>Metode: ${o.method === 'pickup' ? 'Ambil langsung di dapur' : 'Pengiriman kurir'}</p>
+          <p>${o.method === 'pickup' ? 'Lokasi: ' + esc(state.settings.address) : 'Alamat: ' + esc(o.address)}</p>
+          ${o.note ? '<p>Catatan: ' + esc(o.note) + '</p>' : ''}
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col gap-2 sm:flex-row">
+        <a href="${o.url}" target="_blank" rel="noopener" class="btn btn-primary flex-1"><i data-lucide="message-circle" class="h-4 w-4"></i> Buka WhatsApp Lagi</a>
+        <a href="#/menu" class="btn btn-outline flex-1">Tambah Pesanan Lain</a>
+      </div>
+      <button onclick="resetOrderView()" class="mt-3 w-full text-[11px] font-semibold text-pajoh-green/[0.45] underline underline-offset-4 hover:text-pajoh-green">Kembali ke halaman checkout</button>
+    </div>
+  </section>`;
+}
+
+function resetOrderView() {
+  ui.lastOrder = null;
+  render();
+}
+
+/* ============================ KONTAK ============================ */
+
+function contactPage() {
+  return `
+  <section class="mx-auto max-w-[1400px] px-4 pt-10 sm:px-6 lg:px-10 lg:pt-14">
+    <div class="max-w-2xl">
+      ${sectionEyebrow('Hubungi Kami')}
+      <h1 class="serif mt-3 text-4xl font-semibold leading-tight text-pajoh-green sm:text-5xl">Mampir ke dapur,<br />atau sapa kami dulu.</h1>
+      <p class="mt-4 text-[13.5px] leading-relaxed text-pajoh-ink/60">Kami di Peunayong, tidak jauh dari Masjid Raya Baiturrahman. Untuk pesanan besar, katering, atau pertanyaan bahan, WhatsApp adalah jalur tercepat.</p>
+    </div>
+
+    <div class="mt-9 grid gap-6 lg:grid-cols-12">
+      <div class="space-y-3 lg:col-span-5">
+        <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5">
+          <div class="flex items-start gap-3">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-pajoh-green/[0.08] text-pajoh-green"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-pajoh-green/50">Alamat Dapur</p>
+              <p class="mt-1 text-[13.5px] font-semibold leading-relaxed text-pajoh-green">${esc(state.settings.address)}</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(state.settings.address)}" target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.12em] text-pajoh-gold hover:text-pajoh-green">Buka di Google Maps <i data-lucide="external-link" class="h-3 w-3"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5">
+          <div class="flex items-start gap-3">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-pajoh-green/[0.08] text-pajoh-green"><i data-lucide="clock" class="h-5 w-5"></i></span>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-pajoh-green/50">Jam Operasional</p>
+              <p class="mt-1 text-[13.5px] font-semibold text-pajoh-green">${esc(state.settings.hours)}</p>
+              <p class="mt-1 text-[11.5px] text-pajoh-ink/50">Minggu &amp; hari besar: pre-order saja. Pesanan terakhir 18.00 WIB.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-pajoh-green p-5 text-pajoh-ivory">
+          <div class="flex items-start gap-3">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-pajoh-gold"><i data-lucide="message-circle" class="h-5 w-5"></i></span>
+            <div class="min-w-0">
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-pajoh-gold/80">WhatsApp Dapur</p>
+              <p class="mt-1 text-[15px] font-semibold">${formatWaDisplay(state.settings.wa)}</p>
+              <button onclick="chatWhatsApp()" class="btn btn-gold btn-sm mt-3">Chat Sekarang <i data-lucide="arrow-up-right" class="h-3.5 w-3.5"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5">
+          <div class="flex items-start gap-3">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-pajoh-green/[0.08] text-pajoh-green"><i data-lucide="mail" class="h-5 w-5"></i></span>
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-pajoh-green/50">Surel</p>
+              <p class="mt-1 text-[13.5px] font-semibold text-pajoh-green">halo@pajoh.id</p>
+              <p class="mt-1 text-[11.5px] text-pajoh-ink/50">Untuk kerja sama, katering, dan reseller.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="relative h-full min-h-[380px] overflow-hidden rounded-[2rem] border border-pajoh-green/10 bg-pajoh-sand/70">
+          <svg class="absolute inset-0 h-full w-full opacity-50" viewBox="0 0 600 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="480" fill="#F3EFE7"/>
+            <g stroke="#C9D6CC" stroke-width="10" fill="none">
+              <path d="M-20 120h640"/><path d="M-20 300h640"/><path d="M120 -20v520"/><path d="M430 -20v520"/>
+            </g>
+            <g stroke="#D4AF37" stroke-width="3" fill="none" opacity=".55">
+              <path d="M-20 205h640"/><path d="M270 -20v520"/>
+            </g>
+            <g fill="#B7C9BD">
+              <rect x="150" y="140" width="90" height="120" rx="6"/>
+              <rect x="320" y="140" width="80" height="60" rx="6"/>
+              <rect x="150" y="330" width="70" height="40" rx="6"/>
+              <rect x="320" y="330" width="90" height="90" rx="6"/>
+            </g>
+            <circle cx="270" cy="205" r="16" fill="#064E3B"/>
+            <circle cx="270" cy="205" r="34" fill="#064E3B" opacity=".12"/>
+          </svg>
+          <div class="absolute left-1/2 top-1/2 w-[86%] -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white/95 p-5 shadow-xl sm:w-[70%]">
+            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-pajoh-gold">Titik Ambil Pesanan</p>
+            <p class="serif mt-1 text-2xl font-semibold text-pajoh-green">Dapur Pajôh Peunayong</p>
+            <p class="mt-2 text-[12px] leading-relaxed text-pajoh-ink/60">${esc(state.settings.address)}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(state.settings.address)}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Rute Perjalanan <i data-lucide="navigation" class="h-3.5 w-3.5"></i></a>
+              <button onclick="chatWhatsApp()" class="btn btn-outline btn-sm">Tanya Dulu</button>
+            </div>
+            <p class="mt-4 border-t border-dashed border-pajoh-green/[0.15] pt-3 text-[10.5px] leading-relaxed text-pajoh-ink/[0.45]">Parkir tersedia di depan dapur. Mohon konfirmasi kedatangan agar pesanan dipanaskan tepat waktu.</p>
+          </div>
+          <div class="absolute bottom-4 left-4 rounded-full bg-pajoh-green/90 px-4 py-2 text-[10px] uppercase tracking-[0.18em] text-pajoh-ivory">Banda Aceh • 5.5483° N, 95.3238° E</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1400px] px-4 py-16 sm:px-6 lg:px-10">
+    <div class="grid gap-4 rounded-[2rem] bg-pajoh-sand/70 p-6 sm:grid-cols-3 sm:p-8">
+      ${[
+        { icon: 'users', title: 'Pesanan katering', text: 'Minimal 20 porsi, konfirmasi H-3 untuk lauk berkuah dan kue tradisional.' },
+        { icon: 'package', title: 'Pengiriman', text: 'Banda Aceh gratis di atas Rp 250.000. Luar kota via kurir instan, ongkir menyusul.' },
+        { icon: 'heart-handshake', title: 'Reseller & hadiah', text: 'Kemasan hampers tersedia untuk hari raya, kelahiran, dan acara kantor.' }
+      ].map(function (v) {
+        return '<div class="flex gap-3">' +
+          '<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-pajoh-green"><i data-lucide="' + v.icon + '" class="h-4 w-4"></i></span>' +
+          '<div><p class="text-[12.5px] font-bold text-pajoh-green">' + v.title + '</p><p class="mt-0.5 text-[11.5px] leading-relaxed text-pajoh-ink/[0.55]">' + v.text + '</p></div></div>';
+      }).join('')}
+    </div>
+  </section>`;
+}
+
+function notFoundPage() {
+  return `<section class="mx-auto max-w-[900px] px-4 py-24 text-center sm:px-6">
+    <p class="serif text-7xl font-bold text-pajoh-green/[0.15]">404</p>
+    <h1 class="serif mt-2 text-3xl font-semibold text-pajoh-green">Halaman tidak ditemukan</h1>
+    <p class="mt-2 text-[13px] text-pajoh-ink/[0.55]">Sepertinya resep yang Anda cari tidak ada di buku kami.</p>
+    <a href="#/home" class="btn btn-primary mt-6">Kembali ke Beranda</a>
+  </section>`;
+}
+/* ============================================================
+   PAJÔH — ADMIN DASHBOARD, PENCARIAN, INISIALISASI
+   ============================================================ */
+
+const ADMIN_TABS = [
+  { key: 'products', label: 'Kelola Produk', icon: 'package' },
+  { key: 'promo', label: 'Promo & Kategori', icon: 'megaphone' },
+  { key: 'settings', label: 'Pengaturan Brand & WA', icon: 'settings' }
+];
+
+function adminPage() {
+  return `
+  <section class="mx-auto max-w-[1400px] px-4 pb-16 pt-10 sm:px-6 lg:px-10 lg:pt-12">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        ${sectionEyebrow('Admin Dashboard')}
+        <h1 class="serif mt-3 text-4xl font-semibold text-pajoh-green sm:text-5xl">Dapur &amp; Data</h1>
+        <p class="mt-2 max-w-xl text-[13px] leading-relaxed text-pajoh-ink/[0.55]">Kelola katalog, promo, dan pengaturan brand. Semua perubahan disimpan permanen di peramban ini melalui <code class="rounded bg-pajoh-sand px-1.5 py-0.5 text-[11px] text-pajoh-green">localStorage</code>.</p>
+      </div>
+      <a href="#/home" class="btn btn-outline btn-sm self-start sm:self-auto"><i data-lucide="external-link" class="h-3.5 w-3.5"></i> Lihat Situs</a>
+    </div>
+
+    <div class="mt-7 flex gap-2 overflow-x-auto border-b border-pajoh-green/10 pb-3 no-scrollbar">
+      ${ADMIN_TABS.map(function (t) {
+        const active = ui.adminTab === t.key;
+        return '<button data-admin-tab="' + t.key + '" onclick="setAdminTab(\'' + t.key + '\')" class="flex shrink-0 items-center gap-2 rounded-xl px-4 py-2.5 text-[11.5px] font-semibold transition ' +
+          (active ? 'bg-pajoh-green text-pajoh-ivory' : 'bg-transparent text-pajoh-green/60 hover:bg-white') + '">' +
+          '<i data-lucide="' + t.icon + '" class="h-4 w-4"></i>' + t.label + '</button>';
+      }).join('')}
+    </div>
+
+    <div id="admin-content" class="mt-6">${adminContentHtml()}</div>
+  </section>`;
+}
+
+function adminContentHtml() {
+  if (ui.adminTab === 'promo') return adminPromoHtml();
+  if (ui.adminTab === 'settings') return adminSettingsHtml();
+  return adminProductsHtml();
+}
+
+function setAdminTab(tab) {
+  ui.adminTab = tab;
+  const wrap = document.getElementById('admin-content');
+  if (wrap) wrap.innerHTML = adminContentHtml();
+  updateAdminTabs();
+  if (window.lucide) lucide.createIcons();
+}
+
+function updateAdminTabs() {
+  document.querySelectorAll('[data-admin-tab]').forEach(function (btn) {
+    const active = btn.getAttribute('data-admin-tab') === ui.adminTab;
+    btn.classList.toggle('bg-pajoh-green', active);
+    btn.classList.toggle('text-pajoh-ivory', active);
+    btn.classList.toggle('text-pajoh-green/60', !active);
+    btn.classList.toggle('bg-transparent', !active);
+  });
+}
+
+/* ---------------------------- KELOLA PRODUK ---------------------------- */
+
+function adminProductsHtml() {
+  return `
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex flex-wrap gap-2 text-[11px]">
+      <span class="rounded-full bg-white px-3 py-1.5 font-semibold text-pajoh-green ring-1 ring-pajoh-green/10">${state.products.length} produk</span>
+      <span class="rounded-full bg-white px-3 py-1.5 font-semibold text-pajoh-green ring-1 ring-pajoh-green/10">${state.products.filter(function (p) { return p.featured; }).length} unggulan</span>
+      <span class="rounded-full bg-white px-3 py-1.5 font-semibold text-pajoh-green ring-1 ring-pajoh-green/10">${state.categories.length} kategori</span>
+    </div>
+    <button onclick="openProductForm()" class="btn btn-primary btn-sm"><i data-lucide="plus" class="h-4 w-4"></i> Tambah Produk</button>
+  </div>
+
+  <div class="mt-4 overflow-hidden rounded-2xl border border-pajoh-green/10 bg-white">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[760px] text-left text-[12.5px]">
+        <thead class="bg-pajoh-ivory text-[9.5px] uppercase tracking-[0.16em] text-pajoh-green/[0.45]">
+          <tr>
+            <th class="px-4 py-3 font-bold">Produk</th>
+            <th class="px-4 py-3 font-bold">Kategori</th>
+            <th class="px-4 py-3 font-bold">Harga</th>
+            <th class="px-4 py-3 font-bold">Status</th>
+            <th class="px-4 py-3 font-bold">Unggulan</th>
+            <th class="px-4 py-3 text-right font-bold">Aksi</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-pajoh-green/5">
+          ${state.products.map(function (p) {
+            return '<tr class="transition hover:bg-pajoh-ivory/60">' +
+              '<td class="px-4 py-3"><div class="flex items-center gap-3">' +
+                '<div class="h-11 w-11 shrink-0 overflow-hidden rounded-lg bg-pajoh-sand">' + imgTag(p, 'h-full w-full object-cover') + '</div>' +
+                '<div class="min-w-0"><a href="#/product/' + encodeURIComponent(p.id) + '" class="block max-w-[220px] truncate font-semibold text-pajoh-green hover:text-pajoh-gold">' + esc(p.name) + '</a>' +
+                '<p class="max-w-[220px] truncate text-[10.5px] text-pajoh-ink/40">' + esc(p.subtitle) + '</p></div>' +
+              '</div></td>' +
+              '<td class="px-4 py-3 text-pajoh-ink/60">' + esc(p.category) + '</td>' +
+              '<td class="px-4 py-3 font-semibold text-pajoh-green">' + money(p.price) + '</td>' +
+              '<td class="px-4 py-3">' + statusBadge(p.status) + '</td>' +
+              '<td class="px-4 py-3">' + (p.featured ? '<span class="inline-flex items-center gap-1 rounded-full bg-pajoh-gold/20 px-2 py-1 text-[9.5px] font-bold uppercase tracking-wider text-[#8A6A1F]"><i data-lucide="star" class="h-3 w-3"></i> Ya</span>' : '<span class="text-[11px] text-pajoh-ink/30">—</span>') + '</td>' +
+              '<td class="px-4 py-3"><div class="flex items-center justify-end gap-1.5">' +
+                '<button onclick="openProductForm(\'' + p.id + '\')" class="flex h-8 w-8 items-center justify-center rounded-lg border border-pajoh-green/[0.15] text-pajoh-green transition hover:bg-pajoh-green hover:text-white" aria-label="Edit ' + esc(p.name) + '"><i data-lucide="pencil" class="h-3.5 w-3.5"></i></button>' +
+                '<button onclick="deleteProduct(\'' + p.id + '\')" class="flex h-8 w-8 items-center justify-center rounded-lg border border-red-200 text-red-500 transition hover:bg-red-500 hover:text-white" aria-label="Hapus ' + esc(p.name) + '"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i></button>' +
+              '</div></td>' +
+            '</tr>';
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="mt-3 flex items-center gap-1.5 text-[10.5px] text-pajoh-ink/40"><i data-lucide="info" class="h-3.5 w-3.5"></i> Menghapus produk juga menghapusnya dari keranjang pengunjung. Produk unggulan otomatis muncul di Hero Showcase.</p>`;
+}
+
+function val(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+
+function openProductForm(id) {
+  const p = id ? findProduct(id) : null;
+  ui.editingId = id || null;
+
+  const catOptions = state.categories.map(function (c) {
+    return '<option value="' + esc(c) + '"' + (p && p.category === c ? ' selected' : '') + '>' + esc(c) + '</option>';
+  }).join('');
+
+  document.getElementById('modal-root').innerHTML = `
+  <div class="fixed inset-0 z-[80] flex items-start justify-center overflow-y-auto p-3 sm:p-6">
+    <div class="modal-backdrop absolute inset-0" onclick="closeProductForm()"></div>
+    <form onsubmit="saveProduct(event)" class="relative my-4 w-full max-w-3xl rounded-2xl bg-white shadow-2xl fade-up">
+      <div class="flex items-start justify-between gap-3 border-b border-pajoh-green/10 px-5 py-4">
+        <div>
+          <p class="text-[9.5px] font-bold uppercase tracking-[0.24em] text-pajoh-gold">${p ? 'Edit Produk' : 'Produk Baru'}</p>
+          <h2 class="serif text-2xl font-semibold leading-tight text-pajoh-green">${p ? esc(p.name) : 'Tambah ke Katalog'}</h2>
+        </div>
+        <button type="button" onclick="closeProductForm()" class="rounded-lg p-2 text-pajoh-green/40 transition hover:bg-pajoh-ivory hover:text-pajoh-green" aria-label="Tutup"><i data-lucide="x" class="h-4 w-4"></i></button>
+      </div>
+
+      <div class="grid gap-4 px-5 py-5 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <label class="label" for="f-name">Nama Produk *</label>
+          <input id="f-name" class="input" value="${p ? esc(p.name) : ''}" placeholder="Contoh: Sie Reuboh" />
+        </div>
+        <div>
+          <label class="label" for="f-eyebrow">Baris Judul Pembuka</label>
+          <input id="f-eyebrow" class="input" value="${p ? esc(p.eyebrow) : ''}" placeholder="Daging Masak Cuka" />
+          <p class="mt-1 text-[10px] text-pajoh-ink/[0.35]">Baris kecil di atas judul besar hero.</p>
+        </div>
+        <div>
+          <label class="label" for="f-subtitle">Subjudul / Asal Resep</label>
+          <input id="f-subtitle" class="input" value="${p ? esc(p.subtitle) : ''}" placeholder="Resep Indatu • Aceh Besar" />
+        </div>
+        <div>
+          <label class="label" for="f-category">Kategori *</label>
+          <select id="f-category" class="select">${catOptions}</select>
+        </div>
+        <div>
+          <label class="label" for="f-price">Harga (Rp) *</label>
+          <input id="f-price" type="number" min="0" step="500" class="input" value="${p ? p.price : ''}" placeholder="85000" />
+        </div>
+        <div>
+          <label class="label" for="f-status">Status Stok *</label>
+          <select id="f-status" class="select">
+            ${['Tersedia', 'Pre-Order', 'Habis'].map(function (s) {
+              return '<option value="' + s + '"' + (p && p.status === s ? ' selected' : (!p && s === 'Tersedia' ? ' selected' : '')) + '>' + s + '</option>';
+            }).join('')}
+          </select>
+        </div>
+        <div>
+          <label class="label" for="f-rating">Rating</label>
+          <input id="f-rating" type="number" min="0" max="5" step="0.1" class="input" value="${p ? (p.rating || 4.8) : '4.8'}" />
+        </div>
+        <div class="sm:col-span-2">
+          <label class="label" for="f-desc">Deskripsi Singkat *</label>
+          <textarea id="f-desc" rows="3" class="textarea" placeholder="Deskripsi menggugah selera, 1–2 kalimat.">${p ? esc(p.desc) : ''}</textarea>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="label" for="f-story">Kisah Hidangan</label>
+          <textarea id="f-story" rows="3" class="textarea" placeholder="Cerita di balik hidangan (tampil di halaman detail).">${p ? esc(p.story || '') : ''}</textarea>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="label" for="f-spices">Rempah &amp; Bahan (satu per baris)</label>
+          <textarea id="f-spices" rows="5" class="textarea" placeholder="Daging Sapi Pilihan&#10;Cuka Aren Aceh">${p ? esc((p.spices || []).join('\n')) : ''}</textarea>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="label" for="f-serving">Saran Penyajian &amp; Penyimpanan</label>
+          <textarea id="f-serving" rows="3" class="textarea" placeholder="Cara terbaik menikmati dan menyimpan hidangan.">${p ? esc(p.serving || '') : ''}</textarea>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="label" for="f-image">URL Foto (Unsplash / lainnya)</label>
+          <input id="f-image" class="input" value="${p ? esc(p.image) : ''}" placeholder="https://images.unsplash.com/photo-..." />
+          <p class="mt-1 text-[10px] text-pajoh-ink/[0.35]">Kosongkan untuk memakai ilustrasi piring bawaan. Foto otomatis punya fallback bila gagal dimuat.</p>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="flex cursor-pointer items-start gap-3 rounded-xl bg-pajoh-ivory p-4">
+            <input id="f-featured" type="checkbox" class="mt-0.5 h-4 w-4 rounded border-pajoh-green/30" ${p && p.featured ? 'checked' : ''} />
+            <span>
+              <span class="block text-[12.5px] font-semibold text-pajoh-green">Tampilkan sebagai produk unggulan</span>
+              <span class="mt-0.5 block text-[10.5px] leading-relaxed text-pajoh-ink/[0.45]">Maksimal 4 unggulan tampil di Hero Showcase beranda.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-col-reverse gap-2 border-t border-pajoh-green/10 px-5 py-4 sm:flex-row sm:justify-end">
+        <button type="button" onclick="closeProductForm()" class="btn btn-outline">Batal</button>
+        <button type="submit" class="btn btn-primary"><i data-lucide="save" class="h-4 w-4"></i> ${p ? 'Simpan Perubahan' : 'Tambah Produk'}</button>
+      </div>
+    </form>
+  </div>`;
+
+  if (window.lucide) lucide.createIcons();
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProductForm() {
+  const root = document.getElementById('modal-root');
+  if (root) root.innerHTML = '';
+  document.body.style.overflow = '';
+  ui.editingId = null;
+}
+
+function saveProduct(event) {
+  event.preventDefault();
+
+  const name = val('f-name');
+  const price = Number(val('f-price'));
+  const category = val('f-category');
+  const desc = val('f-desc');
+
+  if (name.length < 3) { toast('Nama produk minimal 3 karakter.', 'error'); return; }
+  if (!category) { toast('Pilih kategori produk.', 'error'); return; }
+  if (!price || price < 1000) { toast('Harga minimal Rp 1.000.', 'error'); return; }
+  if (desc.length < 10) { toast('Deskripsi minimal 10 karakter.', 'error'); return; }
+
+  const data = {
+    name: name,
+    eyebrow: val('f-eyebrow') || name.toUpperCase(),
+    subtitle: val('f-subtitle') || 'Resep Indatu • Banda Aceh',
+    kicker: state.settings.highlight,
+    category: category,
+    price: price,
+    status: val('f-status') || 'Tersedia',
+    rating: Number(val('f-rating')) || 4.8,
+    desc: desc,
+    story: val('f-story') || desc,
+    spices: val('f-spices').split('\n').map(function (s) { return s.trim(); }).filter(Boolean),
+    serving: val('f-serving') || 'Nikmati selagi hangat. Simpan di wadah tertutup dalam lemari pendingin dan panaskan kembali sebelum disantap.',
+    image: val('f-image'),
+    featured: document.getElementById('f-featured').checked
+  };
+
+  if (ui.editingId) {
+    const idx = state.products.findIndex(function (p) { return p.id === ui.editingId; });
+    if (idx !== -1) {
+      state.products[idx] = Object.assign({}, state.products[idx], data);
+      toast('Produk "' + name + '" diperbarui.');
+    }
+  } else {
+    state.products.unshift(Object.assign({ id: slugifyProduct(name), likes: 0 }, data));
+    toast('Produk "' + name + '" ditambahkan ke katalog.');
+  }
+
+  saveState();
+  closeProductForm();
+  render();
+}
+
+function deleteProduct(id) {
+  const p = findProduct(id);
+  if (!p) return;
+  if (!confirm('Hapus "' + p.name + '" dari katalog? Tindakan ini tidak bisa dibatalkan.')) return;
+  state.products = state.products.filter(function (x) { return x.id !== id; });
+  delete state.cart[id];
+  delete state.savedLikes[id];
+  saveState();
+  if (ui.heroIndex > 0) ui.heroIndex = 0;
+  render();
+  toast('Produk "' + p.name + '" dihapus.');
+}
+
+/* ---------------------------- PROMO & KATEGORI ---------------------------- */
+
+function adminPromoHtml() {
+  return `
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5">
+      <div class="flex items-center gap-2">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-pajoh-gold/[0.15] text-[#8A6A1F]"><i data-lucide="megaphone" class="h-4 w-4"></i></span>
+        <div><h2 class="serif text-xl font-semibold leading-none text-pajoh-green">Teks Pengumuman</h2><p class="mt-1 text-[10.5px] text-pajoh-ink/40">Berjalan di bilah paling atas situs.</p></div>
+      </div>
+      <label class="label mt-4" for="promo-announcement">Pengumuman</label>
+      <textarea id="promo-announcement" rows="3" class="textarea">${esc(state.settings.announcement)}</textarea>
+      <label class="label mt-4" for="promo-highlight">Label Highlight Hero</label>
+      <input id="promo-highlight" class="input" value="${esc(state.settings.highlight)}" placeholder="Hidangan Warisan Terfavorit" />
+      <p class="mt-1 text-[10px] text-pajoh-ink/[0.35]">Tampil di atas judul hero, contoh: “#1 Hidangan Warisan Terfavorit”.</p>
+      <button onclick="savePromo()" class="btn btn-primary btn-sm mt-4"><i data-lucide="save" class="h-3.5 w-3.5"></i> Simpan Promo</button>
+    </div>
+
+    <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5">
+      <div class="flex items-center gap-2">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-pajoh-green/[0.08] text-pajoh-green"><i data-lucide="tags" class="h-4 w-4"></i></span>
+        <div><h2 class="serif text-xl font-semibold leading-none text-pajoh-green">Kategori Menu</h2><p class="mt-1 text-[10.5px] text-pajoh-ink/40">Dipakai pada filter menu &amp; form produk.</p></div>
+      </div>
+
+      <div class="mt-4 space-y-2">
+        ${state.categories.map(function (c) {
+          const used = state.products.filter(function (p) { return p.category === c; }).length;
+          return '<div class="flex items-center justify-between rounded-xl bg-pajoh-ivory px-3 py-2.5">' +
+            '<div><p class="text-[12.5px] font-semibold text-pajoh-green">' + esc(c) + '</p>' +
+            '<p class="text-[10px] text-pajoh-ink/40">' + used + ' produk</p></div>' +
+            '<button onclick="removeCategory(' + JSON.stringify(c).replace(/"/g, '&quot;') + ')" class="rounded-lg p-1.5 text-pajoh-ink/30 transition hover:bg-red-50 hover:text-red-500" aria-label="Hapus kategori ' + esc(c) + '"><i data-lucide="trash-2" class="h-3.5 w-3.5"></i></button>' +
+          '</div>';
+        }).join('')}
+      </div>
+
+      <label class="label mt-4" for="promo-newcat">Tambah Kategori Baru</label>
+      <div class="flex gap-2">
+        <input id="promo-newcat" class="input" placeholder="Contoh: Minuman Tradisional" onkeydown="if(event.key==='Enter'){event.preventDefault();addCategory();}" />
+        <button onclick="addCategory()" class="btn btn-gold btn-sm shrink-0"><i data-lucide="plus" class="h-3.5 w-3.5"></i> Tambah</button>
+      </div>
+      <p class="mt-1 text-[10px] text-pajoh-ink/[0.35]">Kategori yang masih dipakai produk tidak bisa dihapus.</p>
+    </div>
+  </div>`;
+}
+
+function savePromo() {
+  const announcement = val('promo-announcement');
+  const highlight = val('promo-highlight');
+  if (!announcement) { toast('Teks pengumuman tidak boleh kosong.', 'error'); return; }
+  state.settings.announcement = announcement;
+  state.settings.highlight = highlight || 'Hidangan Warisan Terfavorit';
+  saveState();
+  updateHeader();
+  render();
+  toast('Promo dan highlight hero diperbarui.');
+}
+
+function addCategory() {
+  const input = document.getElementById('promo-newcat');
+  const name = input ? input.value.trim() : '';
+  if (name.length < 2) { toast('Nama kategori minimal 2 karakter.', 'error'); return; }
+  if (state.categories.some(function (c) { return c.toLowerCase() === name.toLowerCase(); })) {
+    toast('Kategori tersebut sudah ada.', 'error');
+    return;
+  }
+  state.categories.push(name);
+  saveState();
+  render();
+  toast('Kategori "' + name + '" ditambahkan.');
+}
+
+function removeCategory(name) {
+  const used = state.products.filter(function (p) { return p.category === name; }).length;
+  if (used > 0) {
+    toast('Kategori "' + name + '" masih dipakai ' + used + ' produk.', 'error');
+    return;
+  }
+  if (state.categories.length <= 1) {
+    toast('Minimal harus ada satu kategori.', 'error');
+    return;
+  }
+  if (!confirm('Hapus kategori "' + name + '"?')) return;
+  state.categories = state.categories.filter(function (c) { return c !== name; });
+  if (ui.menu.cat === name) ui.menu.cat = 'Semua';
+  saveState();
+  render();
+  toast('Kategori dihapus.');
+}
+
+/* ---------------------------- PENGATURAN ---------------------------- */
+
+function adminSettingsHtml() {
+  return `
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div class="rounded-2xl border border-pajoh-green/10 bg-white p-5">
+      <div class="flex items-center gap-2">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-pajoh-green/[0.08] text-pajoh-green"><i data-lucide="settings" class="h-4 w-4"></i></span>
+        <div><h2 class="serif text-xl font-semibold leading-none text-pajoh-green">Brand &amp; WhatsApp</h2><p class="mt-1 text-[10.5px] text-pajoh-ink/40">Dipakai pada checkout, kontak, dan footer.</p></div>
+      </div>
+
+      <div class="mt-4 space-y-4">
+        <div>
+          <label class="label" for="set-wa">Nomor WhatsApp Tujuan Checkout *</label>
+          <input id="set-wa" class="input" value="${esc(state.settings.wa)}" placeholder="6281269002470" inputmode="numeric" />
+          <p class="mt-1 text-[10px] text-pajoh-ink/[0.35]">Format internasional tanpa tanda plus, contoh 6281269002470.</p>
+        </div>
+        <div>
+          <label class="label" for="set-address">Alamat Dapur *</label>
+          <textarea id="set-address" rows="2" class="textarea">${esc(state.settings.address)}</textarea>
+        </div>
+        <div>
+          <label class="label" for="set-hours">Jam Operasional</label>
+          <input id="set-hours" class="input" value="${esc(state.settings.hours)}" />
+        </div>
+        <button onclick="saveSettings()" class="btn btn-primary btn-sm"><i data-lucide="save" class="h-3.5 w-3.5"></i> Simpan Pengaturan</button>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <div class="rounded-2xl border border-pajoh-green/10 bg-pajoh-ivory p-5">
+        <h2 class="serif text-xl font-semibold text-pajoh-green">Status Data</h2>
+        <ul class="mt-3 space-y-2 text-[12px] text-pajoh-ink/60">
+          <li class="flex items-center justify-between"><span>Produk tersimpan</span><span class="font-semibold text-pajoh-green">${state.products.length}</span></li>
+          <li class="flex items-center justify-between"><span>Kategori</span><span class="font-semibold text-pajoh-green">${state.categories.length}</span></li>
+          <li class="flex items-center justify-between"><span>Item di keranjang</span><span class="font-semibold text-pajoh-green">${cartCount()}</span></li>
+          <li class="flex items-center justify-between"><span>Penyimpanan</span><span class="font-semibold text-pajoh-green">localStorage</span></li>
+        </ul>
+        <p class="mt-3 flex items-start gap-2 text-[10.5px] leading-relaxed text-pajoh-ink/[0.45]"><i data-lucide="info" class="mt-0.5 h-3.5 w-3.5 shrink-0"></i> Data hanya tersimpan di peramban ini. Menghapus data peramban akan mengembalikan katalog ke data awal.</p>
+      </div>
+
+      <div class="rounded-2xl border border-red-200 bg-red-50/60 p-5">
+        <h2 class="serif text-xl font-semibold text-red-700">Reset Data Awal</h2>
+        <p class="mt-1.5 text-[12px] leading-relaxed text-red-700/70">Mengembalikan 8 produk awal, kategori, pengaturan brand, dan mengosongkan keranjang. Perubahan Anda akan hilang.</p>
+        <button onclick="resetData()" class="btn btn-sm mt-4 bg-red-600 text-white hover:bg-red-700"><i data-lucide="rotate-ccw" class="h-3.5 w-3.5"></i> Reset Data Awal</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function saveSettings() {
+  const wa = val('set-wa').replace(/[^0-9]/g, '');
+  const address = val('set-address');
+  const hours = val('set-hours');
+
+  if (wa.length < 9) { toast('Nomor WhatsApp tidak valid.', 'error'); return; }
+  if (address.length < 8) { toast('Alamat dapur terlalu pendek.', 'error'); return; }
+
+  state.settings.wa = wa;
+  state.settings.address = address;
+  state.settings.hours = hours || DEFAULT_SETTINGS.hours;
+  saveState();
+  updateHeader();
+  render();
+  toast('Pengaturan brand dan WhatsApp disimpan.');
+}
+
+function resetData() {
+  if (!confirm('Reset seluruh data ke kondisi awal? Semua perubahan produk, promo, dan pengaturan akan hilang.')) return;
+  try { localStorage.removeItem(STORAGE_KEY); } catch (err) { /* ignore */ }
+  state = seedState();
+  ui.heroIndex = 0;
+  ui.heroTab = 'overview';
+  ui.menu = { q: '', cat: 'Semua', status: 'Semua', sort: 'Unggulan' };
+  ui.adminTab = 'products';
+  ui.lastOrder = null;
+  saveState();
+  render();
+  toast('Data berhasil dikembalikan ke kondisi awal.');
+}
+
+/* ---------------------------- PENCARIAN CEPAT ---------------------------- */
+
+function openSearch() {
+  const modal = document.getElementById('search-modal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  const input = document.getElementById('search-input');
+  if (input) { input.value = ''; }
+  renderSearchResults('');
+  setTimeout(function () { if (input) input.focus(); }, 60);
+}
+
+function closeSearch() {
+  const modal = document.getElementById('search-modal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  if (!document.getElementById('modal-root').innerHTML.trim()) document.body.style.overflow = '';
+}
+
+function renderSearchResults(query) {
+  const root = document.getElementById('search-results');
+  if (!root) return;
+  const q = String(query || '').trim().toLowerCase();
+  const list = state.products.filter(function (p) {
+    if (!q) return true;
+    return [p.name, p.subtitle, p.desc, p.category].concat(p.spices || []).join(' ').toLowerCase().indexOf(q) !== -1;
+  }).slice(0, 6);
+
+  if (!list.length) {
+    root.innerHTML = '<div class="px-3 py-8 text-center"><p class="serif text-xl text-pajoh-green">Tidak ada hasil</p>' +
+      '<p class="mt-1 text-[11.5px] text-pajoh-ink/[0.45]">Coba kata lain seperti “reuboh”, “timphan”, atau “sambal”.</p></div>';
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  root.innerHTML = list.map(function (p) {
+    return '<a href="#/product/' + encodeURIComponent(p.id) + '" onclick="closeSearch()" class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-pajoh-ivory">' +
+      '<div class="h-11 w-11 shrink-0 overflow-hidden rounded-full ring-1 ring-pajoh-gold/30">' + imgTag(p, 'h-full w-full object-cover') + '</div>' +
+      '<div class="min-w-0 flex-1"><p class="truncate text-[12.5px] font-semibold text-pajoh-green">' + esc(p.name) + '</p>' +
+      '<p class="truncate text-[10.5px] text-pajoh-ink/[0.45]">' + esc(p.category) + ' • ' + esc(p.subtitle) + '</p></div>' +
+      '<span class="shrink-0 text-[12px] font-bold text-pajoh-green">' + money(p.price) + '</span></a>';
+  }).join('');
+  if (window.lucide) lucide.createIcons();
+}
+
+/* ---------------------------- INISIALISASI ---------------------------- */
+
+ui.method = ui.method || 'kurir';
+
+window.addEventListener('hashchange', render);
+
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    closeSearch();
+    closeProductForm();
+    closeMobileNav();
+  }
+});
+
+if (!location.hash) {
+  history.replaceState(null, '', '#/home');
+}
+
+render();
+</script>
+</body>
+</html>
